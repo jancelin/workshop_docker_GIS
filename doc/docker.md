@@ -23,6 +23,13 @@ Nous pouvons voir que notre hôte héberge quelques services, Docker et les fich
 
 ____________________________________________________________________
 
+Installation de docker:
+
+https://docs.docker.com/engine/installation/
+
+
+____________________________________________________________________
+
 **Commandes essentielles de Docker**
 
 * ```docker pull jancelin/docker-lizmap``` --> construit l'image venant de dockerhub.
