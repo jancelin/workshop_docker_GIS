@@ -21,20 +21,72 @@ Nous pouvons voir que notre hôte héberge quelques services, Docker et les fich
 
 <img src="https://cloud.githubusercontent.com/assets/6421175/18342843/ffbebfb4-75b0-11e6-82f1-3689d2c35825.jpg" width="800">
 
+____________________________________________________________________
 
+**Commandes essentielles de Docker**
 
+* ```docker pull jancelin/docker-lizmap``` --> construit l'image venant de dockerhub.
+* ```docker docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap ```--> construit l'image via mon dépôt github, permet de voir toute l'installation.
+* ```docker images``` --> Voir les images disponible dans son docker
+* ```docker rmi name_of_image --> supprime l'image```.
+* ```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap ```--> démarre lizmap container
+* ```docker ps -a ```--> liste des container et status.
+* ```docker start name_container``` --> démarre container.
+* ```docker stop name_container``` --> arrête container.
+* ```docker rm name_container``` --> supprime le container (Possibilité de : docker stop name_container && docker rm name_container)
+* ```docker exec -it name_container bash ```--> rentre dans le container avec une session root shell.
+* ```docker cp name_container:/file/path/within/container /host/path/target``` ---> copie des fichier du container vers l'hôte. 
+* ```docker exec -i moncontainer /bin/bash -c 'cat > /inside-container-file' < fichier-exterieur``` ---> copie des fichiers de l'hôte vers le container 
+* ```docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)``` ---> arrête et supprime tout les containers
+* ```docker stats `docker ps | awk '{print $NF}' | grep -v NAMES```` ---> voir les stats des containers
+* .... ---> https://docs.docker.com/userguide/ 
 
+**Docker-compose**
 
+```
+Define and run multi-container applications with Docker.
 
+Usage:
+  docker-compose [-f=<arg>...] [options] [COMMAND] [ARGS...]
+  docker-compose -h|--help
 
+Options:
+  -f, --file FILE             Specify an alternate compose file (default: docker-compose.yml)
+  -p, --project-name NAME     Specify an alternate project name (default: directory name)
+  --verbose                   Show more output
+  -v, --version               Print version and exit
+  -H, --host HOST             Daemon socket to connect to
 
+  --tls                       Use TLS; implied by --tlsverify
+  --tlscacert CA_PATH         Trust certs signed only by this CA
+  --tlscert CLIENT_CERT_PATH  Path to TLS certificate file
+  --tlskey TLS_KEY_PATH       Path to TLS key file
+  --tlsverify                 Use TLS and verify the remote
+  --skip-hostname-check       Don't check the daemon's hostname against the name specified
+                              in the client certificate (for example if your docker host
+                              is an IP address)
 
-
-
-
-
-
-
-source:
-
-https://doc.ubuntu-fr.org/docker
+Commands:
+  build              Build or rebuild services
+  config             Validate and view the compose file
+  create             Create services
+  down               Stop and remove containers, networks, images, and volumes
+  events             Receive real time events from containers
+  help               Get help on a command
+  kill               Kill containers
+  logs               View output from containers
+  pause              Pause services
+  port               Print the public port for a port binding
+  ps                 List containers
+  pull               Pulls service images
+  restart            Restart services
+  rm                 Remove stopped containers
+  run                Run a one-off command
+  scale              Set number of containers for a service
+  start              Start services
+  stop               Stop services
+  unpause            Unpause services
+  up                 Create and start containers
+  version            Show the Docker-Compose version information
+```
+source: https://docs.docker.com/compose/reference/overview/
