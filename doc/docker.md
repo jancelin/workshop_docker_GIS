@@ -55,6 +55,8 @@ Installation de docker:
 
 https://docs.docker.com/engine/installation/
 
+https://docs.docker.com/docker-for-windows/
+
 
 ____________________________________________________________________
 
