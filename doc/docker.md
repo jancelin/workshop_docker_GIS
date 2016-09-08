@@ -11,7 +11,7 @@ Contrairement aux autres systèmes de (para) virtualisation, Docker n’embarque
 
 Voici une vue du fonctionnement de Docker vs virtualisation :
 
-<img src="https://cloud.githubusercontent.com/assets/6421175/18342656/298c074e-75b0-11e6-8b6c-9598b0569881.jpeg" width="800">
+<img src="https://cloud.githubusercontent.com/assets/6421175/18343006/bf153dd4-75b1-11e6-83e5-4189e3018ad6.png" width="800">
 
 Docker c'est aussi un dépôt d'images à partir duquel vous pouvez télécharger et partager des applications sans avoir à réinventer la roue. 
 
