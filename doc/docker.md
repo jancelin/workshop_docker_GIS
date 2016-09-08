@@ -19,6 +19,8 @@ Voici par exemple  l'architecture d'un serveur complet sous Docker:
 
 Nous pouvons voir que notre hôte héberge quelques services, Docker et les fichiers de données persistantes (vos données en résumé). L'ensemble des applications sont "containerisées", permettant une souplesse, une facilité et une rapidité d'installation. Et si c'est cassé, ce n'est pas grave, on reconstruit avec 1 lignes de commandes.
 
+<img src="https://cloud.githubusercontent.com/assets/6421175/18342843/ffbebfb4-75b0-11e6-82f1-3689d2c35825.jpg" width="800">
+
 
 
 
