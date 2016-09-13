@@ -165,14 +165,18 @@ https://docs.docker.com/engine/installation/
 https://docs.docker.com/docker-for-windows/
 
 ---
-**Commandes essentielles de Docker**
+**Commandes essentielles de Docker: images**
 
-- Construire l'image via mon dépôt github (permet de voir toute l'installation, debug): <br /> ```docker docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap ```
-- Construire l'image venant de DockerHub: ```docker pull jancelin/docker-lizmap``` 
-- Recherche sur DockerHub: ```docker search lizmap```
-- Lister les images chargés: ```docker images```
-- Supprimer une image: ```docker rmi jancelin/docker-lizmap```.
-- Démarrer une image, redémarrer tout le temps, attribuer un port, lier un dossier en lecture: ```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
+- Construire l'image via mon dépôt github (permet de voir toute l'installation, debug): <br /><br /> ```docker docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap ```
+- Construire l'image venant de DockerHub: <br />```docker pull jancelin/docker-lizmap``` 
+- Recherche sur DockerHub: <br />```docker search lizmap```
+- Lister les images chargés: <br />```docker images```
+- Supprimer une image: <br />```docker rmi jancelin/docker-lizmap```.
+
+---
+**Commandes essentielles de Docker: container**
+
+- Démarrer une image, attribuer un port, lier un dossier en lecture: <br />```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
 - Lister les containers: ```docker ps -a ```
 - Démarer un container: ```docker start name_container``` : démarre container.
 - Arrêter container: ```docker stop name_container```
