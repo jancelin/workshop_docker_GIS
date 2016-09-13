@@ -175,27 +175,38 @@ https://docs.docker.com/engine/installation/
 
 - Supprimer une image: ```docker rmi jancelin/docker-lizmap```
 
--bla
 
 ---
 
-##test
+##test1
 
 ---
 
-##test
+##Commandes essentielles de Docker: container
 
-- Démarrer une image, attribuer un port, lier un dossier en lecture: ```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
+- Démarrer une image, attribuer un port, lier un dossier en lecture: 
 
-- Lister les containers: ```docker ps -a ```
+```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
 
-- Démarer un container: ```docker start name_container``` : démarre container
+- Lister les containers: 
 
-- Arrêter container: ```docker stop name_container```
+```docker ps -a ```
 
-- Supprime le container: ```docker rm name_container```
+- Démarer un container: 
 
-- Rentrer dans un container:```docker exec -it name_container bash ```
+```docker start name_container```
+
+- Arrêter container:
+
+```docker stop name_container```
+
+- Supprime le container:
+
+```docker rm name_container```
+
+- Rentrer dans un container:
+
+```docker exec -it name_container bash ```
 
 - ...: https://docs.docker.com/engine/reference/commandline/#the-docker-commands 
 
