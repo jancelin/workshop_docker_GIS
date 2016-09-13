@@ -25,7 +25,6 @@ ____________________________________________________________________
 
 Installation de docker:
 
-<span style="font-size:5px;">
 ```
 #docker-engine
   sudo apt-get update
