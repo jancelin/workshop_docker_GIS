@@ -165,23 +165,25 @@ https://docs.docker.com/engine/installation/
 https://docs.docker.com/docker-for-windows/
 
 ---
+
 **Commandes essentielles de Docker: images**
 
-- Construire l'image via mon dépôt github (permet de voir toute l'installation, debug): <br /><br /> ```docker docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap ```
-- Construire l'image venant de DockerHub: <br />```docker pull jancelin/docker-lizmap``` 
-- Recherche sur DockerHub: <br />```docker search lizmap```
-- Lister les images chargés: <br />```docker images```
-- Supprimer une image: <br />```docker rmi jancelin/docker-lizmap```.
+- Construire l'image via mon dépôt github (permet de voir toute l'installation, debug): <br /> ```docker docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap ```<br />
+- Construire l'image venant de DockerHub: <br />```docker pull jancelin/docker-lizmap``` <br />
+- Recherche sur DockerHub: <br />```docker search lizmap```<br />
+- Lister les images chargés: <br />```docker images```<br />
+- Supprimer une image: <br />```docker rmi jancelin/docker-lizmap```<br />
 
 ---
+
 **Commandes essentielles de Docker: container**
 
-- Démarrer une image, attribuer un port, lier un dossier en lecture: <br />```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
-- Lister les containers: ```docker ps -a ```
-- Démarer un container: ```docker start name_container``` : démarre container.
-- Arrêter container: ```docker stop name_container```
-- Supprime le container ```docker rm name_container```
-- Rentrer dans un container: ```docker exec -it name_container bash ```
+- Démarrer une image, attribuer un port, lier un dossier en lecture: <br />```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```<br />
+- Lister les containers:<br /> ```docker ps -a ```<br />
+- Démarer un container:<br /> ```docker start name_container``` : démarre container.<br />
+- Arrêter container: <br />```docker stop name_container```<br />
+- Supprime le container:<br /> ```docker rm name_container```<br />
+- Rentrer dans un container:<br />```docker exec -it name_container bash ```<br />
 
 - ...: https://docs.docker.com/engine/reference/commandline/#the-docker-commands 
 
