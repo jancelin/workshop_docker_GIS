@@ -121,7 +121,7 @@ Contrairement aux autres systèmes de (para) virtualisation, Docker n’embarque
 
 ---
 
-**Fonctionnement de Docker vs virtualisation :**
+##Fonctionnement de Docker vs virtualisation :
 
 <img src="https://cloud.githubusercontent.com/assets/6421175/18343006/bf153dd4-75b1-11e6-83e5-4189e3018ad6.png" width="800">
 
@@ -129,7 +129,7 @@ Docker c'est aussi un dépôt d'images à partir duquel vous pouvez télécharge
 
 ---
 
-**Exemple  d'architecture d'un serveur WebSIG sous Docker:**
+##Exemple  d'architecture d'un serveur WebSIG sous Docker:**
 
 <img src="https://cloud.githubusercontent.com/assets/6421175/18342843/ffbebfb4-75b0-11e6-82f1-3689d2c35825.jpg" width="700">
 
@@ -138,7 +138,7 @@ L'hôte héberge quelques services, Docker et les fichiers de données persistan
 ---
 
 
-**Installation de docker linux ubuntu/Debian:**
+##Installation de docker linux ubuntu/Debian:**
 
 ```
   sudo apt-get install apt-transport-https ca-certificates
@@ -164,17 +164,17 @@ https://docs.docker.com/engine/installation/
 
 ---
 
-**Commandes essentielles de Docker: images**
+##Commandes essentielles de Docker: images**
 
 - Construire l'image via mon dépôt github (permet de voir toute l'installation, debug): <br /> ```docker docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap ```<br />
 - Construire l'image venant de DockerHub: <br />```docker pull jancelin/docker-lizmap``` <br />
 - Recherche sur DockerHub: <br />```docker search lizmap```<br />
 - Lister les images chargés: <br />```docker images```<br />
-- Supprimer une image: <br />```docker rmi jancelin/docker-lizmap```<br />
+- Supprimer une image: <br />```docker rmi jancelin/docker-lizmap```
 
 ---
 
-**Commandes essentielles de Docker: container**
+##Commandes essentielles de Docker: container**
 
 - Démarrer une image, attribuer un port, lier un dossier en lecture: <br />```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```<br />
 - Lister les containers:<br /> ```docker ps -a ```<br />
