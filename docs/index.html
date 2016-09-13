@@ -172,15 +172,12 @@ https://docs.docker.com/docker-for-windows/
 - Recherche sur DockerHub: ```docker search lizmap```
 - Lister les images chargés: ```docker images```
 - Supprimer une image: ```docker rmi jancelin/docker-lizmap```.
-- Démarer une image, redémarer tout le temps, attribuer un port, lier un dossier: ```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap ```
+- Démarrer une image, redémarrer tout le temps, attribuer un port, lier un dossier en lecture: ```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
 - Lister les containers: ```docker ps -a ```
 - Démarer un container: ```docker start name_container``` : démarre container.
 - Arrêter container: ```docker stop name_container```
 - Supprime le container ```docker rm name_container```
 - Rentrer dans un container: ```docker exec -it name_container bash ```
-- Copie de fichiers du container vers l'hôte ```docker cp name_container:/file/path/within/container /host/path/target```
-- Copie des fichiers de l'hôte vers le container  ```docker exec -i moncontainer /bin/bash -c 'cat > /inside-container-file' < fichier-exterieur```
-
 - ...: https://docs.docker.com/userguide/ 
 
 ---
