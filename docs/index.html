@@ -181,17 +181,17 @@ https://docs.docker.com/engine/installation/
 
 ##Commandes essentielles de Docker: container
 
-- Démarrer une image, attribuer un port, lier un dossier en lecture:
+- Démarrer une image, attribuer un port, lier un dossier en lecture: 
 
+`docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap`
 
+- Lister les containers: `docker ps -a `
 
-- Lister les containers: 
+- Démarrer un container: `docker start name_container`
 
-- Démarrer un container: 
+- Arrêter container:`docker stop name_container`
 
-- Arrêter container:
-
-- Supprime le container:
+- Supprime le container:`docker rm name_container`
 
 - Rentrer dans un container: `docker exec -it jancelin/docker-lizmap bash`
 
