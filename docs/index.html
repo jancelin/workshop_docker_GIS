@@ -201,28 +201,25 @@ https://docs.docker.com/engine/installation/
  
 ---
 
-##Test
+##Jouer avec un premier container
 
 .exercise[
 
-- RUN a Hello world Docker image:
+- Lancer un service web "Hello world":
 ```bash
 docker run --name "hello" -p 8081:80 -d eeacms/hello
 ```
 Que c'est t'il passé?
-- Faire un:
 ```bash
 docker images
 docker ps
 ```
 - Allez à: http://localhost:8081
-- Faire un:
 ```bash
 docker stop hello && docker rm hello
 docker ps
 ```
-
-
+source: https://hub.docker.com/r/eeacms/hello/
 ]
 
 
