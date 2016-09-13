@@ -181,6 +181,9 @@ https://docs.docker.com/engine/installation/
 
 ##Commandes essentielles de Docker: container
 
+- Démarrer une image, attribuer un port, lier un dossier en lecture:
+
+```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro  jancelin/docker-lizmap ```
 
  https://docs.docker.com/engine/reference/commandline/#the-docker-commands 
  
