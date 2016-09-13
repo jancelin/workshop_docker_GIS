@@ -168,11 +168,11 @@ https://docs.docker.com/docker-for-windows/
 **Commandes essentielles de Docker**
 
 * ```docker docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap ```
-		Construit l'image via mon dépôt github, permet de voir toute l'installation.
+- Construit l'image via mon dépôt github, permet de voir toute l'installation.
 * ```docker pull jancelin/docker-lizmap``` 
-		Construit l'image venant de DockerHub.
+- Construit l'image venant de DockerHub.
 * ```docker search lizmap```
-		Recherche sur DockerHub
+- Recherche sur DockerHub
 * ```docker images``` : Voir les images chargées sur sa machine
 * ```docker rmi jancelin/docker-lizmap : supprime l'image```.
 * ```docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap ```: démarre lizmap container
