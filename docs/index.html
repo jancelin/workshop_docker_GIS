@@ -80,7 +80,7 @@
         border: 2px dotted black;
       }
       .exercise::before {
-        content: "Exercise";
+        content: "Exercice";
         margin-left: 1.8em;
       }
       li p { line-height: 1.25em; }
@@ -207,13 +207,21 @@ https://docs.docker.com/engine/installation/
 
 - RUN a Hello world Docker image:
 ```bash
-docker run --rm -p 80:80 eeacms/hello
+docker run --name "hello" -p 8081:80 -d eeacms/hello
 ```
 Que c'est t'il passé?
+- Faire un:
+```bash
+docker images
+docker ps
+```
+- Allez à: http://localhost:8081
+- Faire un:
+```bash
+docker stop hello && docker rm hello
+docker ps
+```
 
-faire un 'docker ps'
-
-allez à: http://localhost
 
 ]
 
