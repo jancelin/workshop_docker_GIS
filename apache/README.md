@@ -1,11 +1,15 @@
 
 README
 
+Build Image
+
+    docker build -t jancelin/apache git://github.com/jancelin/workshop_docker_GIS/apache
+
 This is a simple Apache image, including SSL support. In order to use this image effectively, you'll need to mount:
 
-    /var/www/html for your site content (e.g. using "-v /home/me/mysite/:/var/www/html/")
-    /var/log/apache2, optionally, if you want to store logfiles visibly outside the container
-    /etc/ssl, optionally, if you wish to use SSL with real keys
+/var/www/html for your site content (e.g. using "-v /home/me/mysite/:/var/www/html/")
+/var/log/apache2, optionally, if you want to store logfiles visibly outside the container
+/etc/ssl, optionally, if you wish to use SSL with real keys
 
 A note on SSL
 
@@ -14,8 +18,8 @@ Simple Examples
 
 Assuming you have your content at /home/me/mysite/, the below will be sufficient to serve it. Note that many Docker users encourage mounting data from a storage container, rather than directly from the filesyetem.
 
-    "It works!": ```docker run -p 80:80 -p 443:443 -d jancelin/apache``` and browse to the host's IP address using http or https
-    Serving actual content with SSL support: ```docker run -p 80:80 -p 443:443 -v /home/jdoe/mysite/:/var/www/html/ -d jancelin/apache```
-    ... without SSL support: ```docker run -p 80:80 -v /home/jdoe/mysite/:/var/www/html/ -d jancelin/apache```
+"It works!": ```docker run -p 80:80 -p 443:443 -d jancelin/apache``` and browse to the host's IP address using http or https
+Serving actual content with SSL support: ```docker run -p 80:80 -p 443:443 -v /home/jdoe/mysite/:/var/www/html/ -d jancelin/apache```
+... without SSL support: ```docker run -p 80:80 -v /home/jdoe/mysite/:/var/www/html/ -d jancelin/apache```
     ... using non-standard ports: ```docker run -p 8080:80 -p 8443:443 -v /home/jdoe/mysite/:/var/www/html/ -d jancelin/apache```
 
