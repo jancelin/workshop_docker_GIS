@@ -369,11 +369,21 @@ ref: https://github.com/jancelin/workshop_docker_GIS/blob/master/apache/README.m
 
 ## Multiplier les containers
 
-- L'avantage de Docker et que l'on peu créer des containers identique ou diversifié très rapidement
+- L'avantage de Docker et que l'on peut créer des containers identique ou diversifié très rapidement
 
 .exercise[
-- 
-
+- créer un deuxième container qgis2web avec un jeux de données différents.
+- créer un troisième container
+- Copier le deuxième répertoire créé avec Qgis2Web dans ce dossier
+```bash
+cp -r /home/geomatik/qgis2web1/ /home/geomatik/1
+```
+- Changer quelques paramètres du `RUN`: le port (impossible de lancer 2 container sur le même port) et le dossier lié
+```bash
+docker run --name "qgis2web2" -p 8082:80 -v /home/geomatik/1/qgis2web1/:/var/www/html/ -d apache1
+docker run --name "qgis2web3" -p 444:443 -v /home/geomatik/1/qgis2web/:/var/www/html/ -d apache1
+```
+- http://localhost:8081 http://localhost:8082 https://localhost:444 
 
 
 
