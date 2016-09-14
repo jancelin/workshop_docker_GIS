@@ -127,7 +127,7 @@ Contrairement aux autres systèmes de (para) virtualisation, Docker n’embarque
 
 <img src="https://cloud.githubusercontent.com/assets/6421175/18343006/bf153dd4-75b1-11e6-83e5-4189e3018ad6.png" width="750">
 
-Docker c'est aussi un dépôt d'images à partir duquel vous pouvez télécharger et partager des applications sans avoir à réinventer la roue. 
+Docker c'est aussi un dépôt d'images à partir duquel vous pouvez télécharger et partager des applications sans avoir à réinventer la roue. https://hub.docker.com/
 
 ---
 
@@ -167,7 +167,7 @@ https://docs.docker.com/engine/installation/
 
 ##Commandes essentielles de Docker: images
 
-- Construire l'image via mon dépôt github (permet de voir toute l'installation, debug):  `docker docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap`
+- Construire l'image via mon dépôt github (permet de voir toute l'installation, debug):  ` docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap`
 
 - Construire l'image venant de DockerHub: `docker pull jancelin/docker-lizmap`
 
@@ -286,7 +286,7 @@ https://plugins.qgis.org/plugins/qgis2web/
 ##Let's go
 
 .exercise[
-- Se connecter au serveur en ssh
+- Se connecter au serveur avec ssh
 ```bash
 ssh geomatik@ip_serveur
 ```
@@ -318,6 +318,7 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 RUN /usr/sbin/a2ensite default-ssl
 RUN /usr/sbin/a2enmod ssl
+VOLUME /var/www/html
 EXPOSE 80
 EXPOSE 443
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
@@ -338,8 +339,10 @@ ctrl x
 docker build -t apache1 /home/geomatik/1
 ```
 - Vous observez grâce à `build` le détail de l'installation, pratique pour le debug...
+
 - Vous optenez un `Successfully built` à la fin de la construction.
-- `docker images` vous permettra de visualiser les caractéristiques de votre image.
+
+- Visualiser les caractéristiques de votre image: `docker images`
 ]
 
 ---
@@ -357,12 +360,22 @@ docker build -t apache1 /home/geomatik/1
 docker run --name "qgis2web1" -p 8081:80 -v /home/geomatik/1/qgis2web/:/var/www/html/ -d apache1
 ```
 - Pour connaitre l'état du container lancer un `docker ps`
-- se rendre sur http://localhost:8081 et voir le résultat
 
+- se rendre sur http://localhost:8081 et voir le résultat
 ]
 
 ref: https://github.com/jancelin/workshop_docker_GIS/blob/master/apache/README.md
 ---
+
+## Multiplier les containers
+
+- L'avantage de Docker et que l'on peu créer des containers identique ou diversifié très rapidement
+
+.exercise[
+- 
+
+
+
 
 class: title
 
