@@ -330,6 +330,32 @@ ctrl x
 ]
 
 ---
+##Construction de l'image:
+
+.exercise[
+- Comme nous n'utilisons pas une image du DockerHub il faut la construire en local ( `PULL` vs `BUILD` )
+```bash
+docker build -t apache1 /home/geomatik/1
+```
+- Vous observez grâce à `build` le détail de l'installation, pratique pour le debug...
+- Vous optenez un `Successfully built` à la fin de la construction.
+- Un `docker images` vous permettra de visualiser les caractéristiques de votre image.
+
+---
+##Lancer le container avec ses cartes:
+
+.exercise[
+- Nous allons maintenant créer la phrase de lancement du container `RUN`
+- attribuer un nom: --name "apache1"
+- définir que  nous verons notre site web sur le port 8081 ( localhost:8081): -p 8081:80
+- lier notre dossier qgis2web : -v /home/geomatik/1/qgis2web/:/var/www/html/
+- lancer en tache de fond : -d
+- utiliser l'image créé comme référence: apache1
+```bash
+docker run --name "apache1" -p 8081:80 -v /home/geomatik/1/qgis2web/:/var/www/html/ -d apache1
+```
+]
+---
 
 class: title
 
