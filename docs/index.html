@@ -369,7 +369,7 @@ ref: https://github.com/jancelin/workshop_docker_GIS/blob/master/apache/README.m
 
 ## Multiplier les containers
 
-- L'avantage de Docker et que l'on peut créer des containers identique ou diversifié très rapidement
+- L'avantage de Docker et que l'on peut créer des containers identique ou diversifié très rapidement.
 
 .exercise[
 - créer un deuxième container qgis2web avec un jeux de données différents.
@@ -378,7 +378,7 @@ ref: https://github.com/jancelin/workshop_docker_GIS/blob/master/apache/README.m
 ```bash
 cp -r /home/geomatik/qgis2web1/ /home/geomatik/1
 ```
-- Changer quelques paramètres du `RUN`: le port (impossible de lancer 2 container sur le même port) et le dossier lié
+- Changer quelques paramètres du `RUN`: le port (impossible de lancer 2 containers sur le même port) et le dossier lié
 ```bash
 docker run --name "qgis2web2" -p 8082:80 -v /home/geomatik/1/qgis2web1/:/var/www/html/ -d apache1
 docker run --name "qgis2web3" -p 444:443 -v /home/geomatik/1/qgis2web/:/var/www/html/ -d apache1
@@ -389,14 +389,16 @@ docker run --name "qgis2web3" -p 444:443 -v /home/geomatik/1/qgis2web/:/var/www/
 ---
 ##Un peu de ménage avant de passer à la suite
 
-- Le problème c'est que l'on se fait vite prendre au jeu de construire des containers, plein de containers...
+- On se fait vite prendre au jeu de construire des containers, plein de containers...
+
 .exercise[
-- Méthode longue, il faut écrire tout les nom
+- Arréter et supprimer tout nos containers.
+- Méthode longue, il faut écrire tout les nom:
 ```bash
 docker stop qgis2web1 qgis2web2 qgis2web3 
 docker rm qgis2web1 qgis2web2 qgis2web3
 ```
-- méthode plus simple car l'on gère tout les containers d'une images
+- Méthode plus simple car nous gérons tout les containers d'une images:
 ```bash
 docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs -I {} docker stop {}
 docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs -I {} docker rm {}
