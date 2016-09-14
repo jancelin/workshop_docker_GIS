@@ -296,6 +296,7 @@ nano Dockerfile
 ##Editer le Dockerfile
 
 .exercise[
+- Copier le contenu et coller dans le Dockerfile
 ```bash
 FROM debian:jessie
 MAINTAINER Julien ANCELIN
@@ -309,7 +310,11 @@ EXPOSE 80
 EXPOSE 443
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 ```
-
+- Sauvegarder et sortir de l'édition
+```bash
+ctrl o
+ctrl x
+```
 ]
 
 ---
