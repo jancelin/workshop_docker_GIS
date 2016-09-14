@@ -384,8 +384,26 @@ docker run --name "qgis2web2" -p 8082:80 -v /home/geomatik/1/qgis2web1/:/var/www
 docker run --name "qgis2web3" -p 444:443 -v /home/geomatik/1/qgis2web/:/var/www/html/ -d apache1
 ```
 - http://localhost:8081 http://localhost:8082 https://localhost:444 
+]
 
+---
+##Un peu de ménage avant de passer à la suite
 
+- Le problème c'est que l'on se fait vite prendre au jeu de construire des containers, plein de containers...
+.exercise[
+- Méthode longue, il faut écrire tout les nom
+```bash
+docker stop qgis2web1 qgis2web2 qgis2web3 
+docker rm qgis2web1 qgis2web2 qgis2web3
+```
+- méthode plus simple car l'on gère tout les containers d'une images
+```bash
+docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs -I {} docker stop {}
+docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs -I {} docker rm {}
+```
+]
+
+---
 
 class: title
 
