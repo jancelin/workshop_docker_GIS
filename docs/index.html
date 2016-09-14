@@ -230,22 +230,22 @@ source: https://hub.docker.com/r/eeacms/hello/
 
 L'écriture d'un Dockerfile ressemble un peu à celle d'une recette de cuisine: incorporer ça, faire ça, incorporer autre chose, faire cette opération et cette autre opération.
 
-<img src="https://cloud.githubusercontent.com/assets/6421175/18507558/25caf460-7a71-11e6-9e55-a36eafa499dd.png" width="200">
+<img src="https://cloud.githubusercontent.com/assets/6421175/18507558/25caf460-7a71-11e6-9e55-a36eafa499dd.png" width="400">
 
 ---
 
 ##Mots clefs de base pour la création d'un container : 
 
-FROM permet de définir depuis quelle base votre image ve être créée
-MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
-RUN permet de lancer une commande, mais aura aussi pour effet de créer une image intermédiaire.
-ADD permet de copier un fichier depuis la machine hôte ou depuis une URL
-EXPOSE permet d'exposer un port du container vers l'extérieur
-CMD détermine la commande qui sera exécutée lorsque le container démarrera
-ENTRYPOINT permet d'ajouter une commande qui sera exécutée par défaut, et ce, même si on choisit d'exécuter une commande différente de la commande standard
-WORKDIR permet de définir le dossier de travail pour toutes les autres commandes (par exemple RUN, CMD, ENTRYPOINT et ADD)
-ENV permet de définir des variables d'environnements qui pourront ensuite être modifiées grâce au paramètre de la commande run --env <key>=<value>.
-VOLUMES permet de créer un point de montage qui permettra de persister les données. On pourra alors choisir de monter ce volume dans un dossier spécifique en utilisant la commande `run -v :
+-FROM permet de définir depuis quelle base votre image ve être créée
+-MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
+-RUN permet de lancer une commande, mais aura aussi pour effet de créer une image intermédiaire.
+-ADD permet de copier un fichier depuis la machine hôte ou depuis une URL
+-EXPOSE permet d'exposer un port du container vers l'extérieur
+-CMD détermine la commande qui sera exécutée lorsque le container démarrera
+-ENTRYPOINT permet d'ajouter une commande qui sera exécutée par défaut, et ce, même si on choisit d'exécuter une commande différente de la commande standard
+-WORKDIR permet de définir le dossier de travail pour toutes les autres commandes (par exemple RUN, CMD, ENTRYPOINT et ADD)
+-ENV permet de définir des variables d'environnements qui pourront ensuite être modifiées grâce au paramètre de la commande run --env <key>=<value>.
+-VOLUMES permet de créer un point de montage qui permettra de persister les données. On pourra alors choisir de monter ce volume dans un dossier spécifique en utilisant la commande `run -v :
 
 ---
 
