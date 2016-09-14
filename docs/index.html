@@ -277,7 +277,12 @@ https://plugins.qgis.org/plugins/qgis2web/
 
 .exercise[
 - Créer un fichier Dockerfile et rajouter
+
 FROM debian:jessie
+
+MAINTAINER Julien ANCELIN
+
+RUN apt-get update && apt-get -y install apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ]
 
