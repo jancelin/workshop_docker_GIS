@@ -3,7 +3,7 @@ README
 
 Build Image
 
-    docker build -t jancelin/apache git://github.com/jancelin/workshop_docker_GIS/apache
+    docker build -t jancelin/apache git://github.com/jancelin/workshop_docker_GIS
 
 This is a simple Apache image, including SSL support. In order to use this image effectively, you'll need to mount:
 
