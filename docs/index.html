@@ -236,31 +236,68 @@ L'écriture d'un Dockerfile ressemble un peu à celle d'une recette de cuisine: 
 
 ##Mots clefs de base pour la création d'un container 1/2: 
 
--FROM permet de définir depuis quelle base votre image ve être créée
+- FROM permet de définir depuis quelle base votre image ve être créée
 
--MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
+- MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
 	
--RUN permet de lancer une commande, mais aura aussi pour effet de créer une image intermédiaire.
+- RUN permet de lancer une commande, mais aura aussi pour effet de créer une image intermédiaire.
 
--ADD permet de copier un fichier depuis la machine hôte ou depuis une URL
+- ADD permet de copier un fichier depuis la machine hôte ou depuis une URL
 
--EXPOSE permet d'exposer un port du container vers l'extérieur
+- EXPOSE permet d'exposer un port du container vers l'extérieur
 
 ---
 
 ##Mots clefs de base pour la création d'un container 2/2: 
 
--CMD détermine la commande qui sera exécutée lorsque le container démarrera
+- CMD détermine la commande qui sera exécutée lorsque le container démarrera
 
--ENTRYPOINT permet d'ajouter une commande qui sera exécutée par défaut, et ce, même si on choisit d'exécuter une commande différente de la commande standard
+- ENTRYPOINT permet d'ajouter une commande qui sera exécutée par défaut, et ce, même si on choisit d'exécuter une commande différente de la commande standard
 
--WORKDIR permet de définir le dossier de travail pour toutes les autres commandes (par exemple RUN, CMD, ENTRYPOINT et ADD)
+- WORKDIR permet de définir le dossier de travail pour toutes les autres commandes (par exemple RUN, CMD, ENTRYPOINT et ADD)
 
--ENV permet de définir des variables d'environnements qui pourront ensuite être modifiées grâce au paramètre de la commande run --env <key>=<value>.
+- ENV permet de définir des variables d'environnements qui pourront ensuite être modifiées grâce au paramètre de la commande run --env <key>=<value>.
 
--VOLUMES permet de créer un point de montage qui permettra de persister les données. On pourra alors choisir de monter ce volume dans un dossier spécifique en utilisant la commande `run -v :
+- VOLUMES permet de créer un point de montage qui permettra de persister les données. On pourra alors choisir de monter ce volume dans un dossier spécifique en utilisant la commande `run -v :
 
 ---
+
+##Mon premier Container:
+
+- Conception d'un serveur web fonctionnel (apache) pour publier mes cartes (Qgis2web)
+
+<img src="https://cloud.githubusercontent.com/assets/6421175/18508306/f2e957fa-7a73-11e6-9c5c-05fcf888598d.png" width="100">
+<img src="https://cloud.githubusercontent.com/assets/6421175/18508320/f955b4f8-7a73-11e6-9aeb-275f88748be6.png" width="100">
+
+
+---
+
+##Let's go
+
+.exercise[
+- Créer un fichier Dockerfile à la racine de votre session /home/ma_session/Dockerfile
+```bash
+FROM debian:jessie
+MAINTAINER Julien ANCELIN
+
+RUN apt-get update && apt-get -y install apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
+RUN /usr/sbin/a2ensite default-ssl
+RUN /usr/sbin/a2enmod ssl
+
+EXPOSE 80
+EXPOSE 443
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+```
+]
+
+---
+
 
 class: title
 
