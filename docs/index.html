@@ -278,9 +278,26 @@ https://plugins.qgis.org/plugins/qgis2web/
 .exercise[
 - Créer un fichier Dockerfile à la racine de votre session /home/ma_session/Dockerfile
 
+FROM debian:jessie
+MAINTAINER Julien ANCELIN
+
+RUN apt-get update && apt-get -y install apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
+RUN /usr/sbin/a2ensite default-ssl
+RUN /usr/sbin/a2enmod ssl
+
+EXPOSE 80
+EXPOSE 443
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
 ]
 
+---
 
 class: title
 
