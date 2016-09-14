@@ -276,8 +276,8 @@ https://plugins.qgis.org/plugins/qgis2web/
 ##Let's go
 
 .exercise[
-- Créer un fichier Dockerfile à la racine de votre session /home/ma_session/Dockerfile
-
+- Créer un fichier Dockerfile
+```bash
 FROM debian:jessie
 MAINTAINER Julien ANCELIN
 
@@ -294,7 +294,7 @@ EXPOSE 80
 EXPOSE 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-
+```
 ]
 
 ---
