@@ -420,7 +420,17 @@ https://docs.docker.com/compose/install/
 - Transformons maintenant nos commandes RUN vers le docker-compose.yml
 
 .exercise[
-![d-compose](docker-compose.yml)
+```bash
+	version: '2'
+	services:
+	  qgis2web1:
+	    image: apache1
+	    restart: always
+	    ports:
+	      - 8081:80
+	    volumes:
+	      - "/home/geomatik/1/qgis2web/:/var/www/html/"
+```
 ]
 
 ---
