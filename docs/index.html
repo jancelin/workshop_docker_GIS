@@ -412,8 +412,32 @@ sudo pip install docker-compose
 ```
 ]
 https://docs.docker.com/compose/install/
----
 
+---
+##fichier docker-compose.yml
+
+- Le fichier Compose est un fichier YAML définissant les services, les réseaux et les volumes. Le chemin par défaut pour un fichier Compose est ./docker-compose.yml
+- Transformons maintenant nos commandes RUN vers le docker-compose.yml
+.exercise[
+- créer le docker-compose.yml
+```bash
+nano docker-compose.yml
+```
+- utilisons notre premier 'run'
+```bash
+version: '2'
+
+services:
+
+  qgis2web1:
+    build: /home/geomatik/1
+    restart: always
+    ports:
+      - 8081:80
+    volumes:
+      - "/home/geomatik/1/qgis2web/:/var/www/html/"
+```
+]
 
 
 class: title
