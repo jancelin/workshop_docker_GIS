@@ -100,7 +100,7 @@
 
 ## Sommaire
 
-- Concept et théorique de Docker ![](docker-whale.png)
+- Concept et théorique de Docker ![docker](docker-whale.png)
 - Conception d'une image et déploiement des containers ![container](docker-containers.png)
 - Orchestration ![compose](Compose.png)
 - Mise en place d'une usine logiciel WebSIG ![usine](usine.png)
@@ -125,7 +125,7 @@ Docker c'est aussi un dépôt d'images à partir duquel vous pouvez télécharge
 
 ---
 
-##Exemple  d'architecture d'un serveur WebSIG sous Docker![docker](docker-whale.png)
+##Exemple  d'architecture d'un serveur WebSIG sous Docker
 
 ![serveur](serveur.png)
 
@@ -315,8 +315,7 @@ CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 ```
 - Sauvegarder et sortir de l'édition
 ```bash
-ctrl o
-ctrl x
+ctrl o + ctrl x
 ```
 ]
 
@@ -414,12 +413,10 @@ sudo pip install docker-compose
 https://docs.docker.com/compose/install/
 
 ---
-##fichier docker-compose.yml![compose](Compose.png)
-
-- Le fichier Compose est un fichier YAML définissant les services, les réseaux et les volumes. Le chemin par défaut pour un fichier Compose est ./docker-compose.yml
-
+##Fichier docker-compose.yml![compose](Compose.png)
 .exercise[
-- Transformer maintenant une des commandes RUN: créer le docker-compose.yml
+- Le fichier Compose est un fichier YAML définissant les services, les réseaux et les volumes.
+- Créer le docker-compose.yml
 ```bash
 nano docker-compose.yml
 ```
@@ -457,7 +454,6 @@ nano docker-compose.yml
 -toutes les commandes: https://docs.docker.com/compose/reference/
 ---
 ## Orchestrer tout ses services![compose](Compose.png)
-
 .exercise[
 - rajouter tout les run dans le docker-compose.yml
 ```bash
