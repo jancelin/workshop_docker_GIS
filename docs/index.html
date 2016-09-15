@@ -419,7 +419,7 @@ https://docs.docker.com/compose/install/
 - Le fichier Compose est un fichier YAML définissant les services, les réseaux et les volumes. Le chemin par défaut pour un fichier Compose est ./docker-compose.yml
 
 .exercise[
-- Transformons maintenant nos commandes RUN: créer le docker-compose.yml
+- Transformer maintenant une des commandes RUN: créer le docker-compose.yml
 ```bash
 nano docker-compose.yml
 ```
@@ -448,15 +448,38 @@ nano docker-compose.yml
 - Visualiser le résultat http://localhost:8081
 
 - Visualiser l'état du container: `docker-compose ps`
-- Arrêter un container..........: `docker-compose stop qgis2web1`
+- Arrêter un container: `docker-compose stop qgis2web1`
 - Supprimer un container: `docker-compose rm qgis2web1`
 - Tuer tout les containers: `docker-compose kill`
 - Supprimer tout les containers: `docker-compose rm`
 ]
 ---
+## orchestrer tout ses services
 
-
-
+.exercise[
+- rajouter tout les run dans le docker-compose.yml
+```bash
+	version: '2'
+	
+	services:
+	
+	  qgis2web1:
+	    image: apache1
+	    restart: always
+	    ports:
+	      - 8081:80
+	    volumes:
+	      - "/home/geomatik/1/qgis2web/:/var/www/html/"
+	
+	  qgis2web2:
+	    image: apache1
+	    restart: always
+	    ports:
+	      - 8082:80
+	    volumes:
+	      - "/home/geomatik/1/qgis2web1/:/var/www/html/"
+```
+]
 ---
 class: title
 
