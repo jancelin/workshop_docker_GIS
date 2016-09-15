@@ -503,7 +503,70 @@ nano docker-compose.yml
 ---
 ## Choix des images ![usine](usine.png)
 
+- Postgesql Postgis 9.5-2.2 : https://hub.docker.com/r/kartoza/postgis/
+
+- qgis-serveur Lizmap: https://hub.docker.com/r/jancelin/docker-lizmap/
+
+- Rstudio : https://hub.docker.com/r/rocker/rstudio/
+
+**En option
+
+- Owncloud : https://hub.docker.com/_/owncloud/
+
+- Gitlab : https://hub.docker.com/r/gitlab/gitlab-ce/
+
 ---
+##Arborescence ![usine](usine.png)
+
+.exercise[
+- Créer les dossiers pour les fichiers permanents
+```bash
+	mkdir /home/geomatik/1/postgres_data
+	mkdir /home/geomatik/1/lizmap/lizmap_project
+	mkdir /home/geomatik/1/lizmap/lizmap_var
+	mkdir /home/geomatik/1/rstudio
+```
+]
+---
+##Docker-compose.yml ![usine](usine.png)
+.exercise[
+```bash
+postgis:
+    image: kartoza/postgis:9.5-2.2
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - "/home/geomatik/1/postgres_data:/var/lib/postgresql"
+    environment:
+     - POSTGRES_USER=geomatik
+     - POSTGRES_PASS=geomatik
+     - ALLOW_IP_RANGE=0.0.0.0/0
+
+  lizmap:
+    image: jancelin/docker-lizmap:3-2.14LTR
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - "/home/geomatik/1/lizmap/lizmap_project:/home"
+      - "/home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var"
+
+  rstudio:
+    image: rocker/rstudio
+    restart: always
+    ports:
+      - 8787:8787
+    volumes:
+      - /home/geomatik/1/rstudio:/home/geomatik
+    environment:
+      - USER=geomatik
+      - PASSWORD=geomatik
+```
+]
+
+---
+
 class: title
 
 # Merci! <br/> Questions?
