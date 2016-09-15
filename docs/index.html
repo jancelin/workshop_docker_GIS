@@ -155,6 +155,7 @@ L'hôte héberge quelques services, Docker et les fichiers de données persistan
   sudo groupadd docker
   sudo usermod -aG docker $USER
 ```
+]
 https://docs.docker.com/engine/installation/
 
 ---
@@ -410,10 +411,12 @@ docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs 
 - En se basant sur un fichier docker-compose.yml contenant la configuration de votre empilement, docker-compose va créer, lancer, ouvrir les ports, créer les volumes et lier vos containers tout seul.
 
 .exercise[
+- installation de docker-compose
 ```bash
 sudo apt-get install python-pip
 sudo pip install docker-compose
 ```
+]
 https://docs.docker.com/compose/install/
 ---
 
