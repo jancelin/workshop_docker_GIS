@@ -403,6 +403,9 @@ docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs 
 ---
 ##Orchestration ![compose](Compose.png)
 
+- La gestion de la création, l'ordonnancement et le lancement des containers est fastidieuse car il faut le faire manuellement et respecter chaque étape.
+**C’est là que docker-compose vous simplifie la vie.**
+- En se basant sur un fichier docker-compose.yml contenant la configuration de votre empilement, docker-compose va créer, lancer, ouvrir les ports, créer les volumes et lier vos containers tout seul.
 ---
 
 class: title
