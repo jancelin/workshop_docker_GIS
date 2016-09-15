@@ -1,19 +1,35 @@
-version: '2'
-
-services:
-
-  qgis2web1:
-    image: apache1
-    restart: always
-    ports:
-      - 8081:80
-    volumes:
-      - "/home/geomatik/1/qgis2web/:/var/www/html/"
-
-  qgis2web2:
-    image: apache1
-    restart: always
-    ports:
-      - 8082:80
-    volumes:
-      - "/home/geomatik/1/qgis2web1/:/var/www/html/"
+	version: '2'
+	
+	services:
+	
+	  postgis:
+	    image: kartoza/postgis:9.5-2.2
+	    restart: always
+	    ports:
+	      - 5432:5432
+	    volumes:
+	      - "/home/geomatik/1/postgres_data:/var/lib/postgresql"
+	    environment:
+	     - POSTGRES_USER=geomatik
+	     - POSTGRES_PASS=geomatik
+	     - ALLOW_IP_RANGE=0.0.0.0/0
+	
+	  lizmap:
+	    image: jancelin/docker-lizmap:3-2.14LTR
+	    restart: always
+	    ports:
+	      - 80:80
+	    volumes:
+	      - "/home/geomatik/1/lizmap/lizmap_project:/home"
+	      - "/home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var"
+	      
+	  rstudio:
+	    image: rocker/rstudio
+	    restart: always
+	    ports:
+	      - 8787:8787
+	    volumes:
+	      - /home/geomatik/1/rstudio:/home/geomatik
+	    environment:
+	      - USER=geomatik
+	      - PASSWORD=geomatik
