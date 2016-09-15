@@ -103,7 +103,7 @@
 - Concept et théorique de Docker ![docker](docker-whale.png)
 - Conception d'une image et déploiement des containers ![container](docker-containers.png)
 - Orchestration ![compose](Compose.png)
-- Mise en place d'une usine logiciel WebSIG ![usine](logici.png)
+- Mise en place d'une usine logiciel WebSIG ![usine](usine.png)
 
 ---
 
@@ -117,7 +117,7 @@ Contrairement aux autres systèmes de (para) virtualisation, Docker n’embarque
 
 ---
 
-##Fonctionnement de Docker vs virtualisation :
+##Fonctionnement de Docker vs virtualisation![docker](docker-whale.png)
 
 ![dockervsvm](687.jpeg)
 
@@ -125,7 +125,7 @@ Docker c'est aussi un dépôt d'images à partir duquel vous pouvez télécharge
 
 ---
 
-##Exemple  d'architecture d'un serveur WebSIG sous Docker:
+##Exemple  d'architecture d'un serveur WebSIG sous Docker![docker](docker-whale.png)
 
 ![serveur](serveur.png)
 
@@ -133,7 +133,7 @@ L'hôte héberge quelques services, Docker et les fichiers de données persistan
 
 ---
 
-##Installation de docker linux ubuntu/Debian:
+##Installation de docker linux ubuntu/Debian![docker](docker-whale.png)
 
 .exercise[
 ```bash
@@ -154,7 +154,7 @@ https://docs.docker.com/engine/installation/
 
 ---
 
-##Commandes essentielles de Docker: images
+##Commandes essentielles de Docker: images![docker](docker-whale.png)
 
 - Construire l'image via mon dépôt github (permet de voir toute l'installation, debug):  ` docker build -t docker-lizmap git://github.com/jancelin/docker-lizmap`
 
@@ -170,7 +170,7 @@ https://docs.docker.com/engine/installation/
 
 ---
 
-##Commandes essentielles de Docker: container
+##Commandes essentielles de Docker: container![docker](docker-whale.png)
 
 - Démarrer une image, attribuer un port, lier un dossier en lecture: 
 
@@ -192,7 +192,7 @@ https://docs.docker.com/engine/installation/
  
 ---
 
-##Jouer avec un premier container: un service web "Hello world"
+##Jouer avec un premier container: un service web "Hello world"![docker](docker-whale.png)
 
 .exercise[
 ```bash
@@ -225,7 +225,7 @@ L'écriture d'un Dockerfile ressemble un peu à celle d'une recette de cuisine: 
 
 ---
 
-##Mots clefs de base pour la création d'un container 1/2: 
+##Mots clefs de base pour la création d'un container 1/2 ![container](docker-containers.png)
 
 - FROM permet de définir depuis quelle base votre image ve être créée
 
@@ -239,7 +239,7 @@ L'écriture d'un Dockerfile ressemble un peu à celle d'une recette de cuisine: 
 
 ---
 
-##Mots clefs de base pour la création d'un container 2/2: 
+##Mots clefs de base pour la création d'un container 2/2 ![container](docker-containers.png)
 
 - CMD détermine la commande qui sera exécutée lorsque le container démarrera
 
@@ -253,7 +253,7 @@ L'écriture d'un Dockerfile ressemble un peu à celle d'une recette de cuisine: 
 
 ---
 
-##Mon premier Container:
+##Mon premier Container ![container](docker-containers.png)
 
 - Conception d'un serveur web fonctionnel (apache) pour publier mes cartes (Qgis2web)
 
@@ -273,7 +273,7 @@ https://plugins.qgis.org/plugins/qgis2web/
 ]
 ---
 
-##Let's go
+##Let's go ![container](docker-containers.png)
 
 .exercise[
 - Se connecter au serveur avec ssh
@@ -295,7 +295,7 @@ nano Dockerfile
 ]
 
 ---
-##Editer le Dockerfile
+##Editer le Dockerfile ![container](docker-containers.png)
 
 .exercise[
 - Copier le contenu et coller dans le Dockerfile
@@ -321,7 +321,7 @@ ctrl x
 ]
 
 ---
-##Construction de l'image:
+##Construction de l'image![container](docker-containers.png)
 
 .exercise[
 - Comme nous n'utilisons pas une image du DockerHub il faut la construire en local ( `PULL` vs `BUILD` )
@@ -336,7 +336,7 @@ docker build -t apache1 /home/geomatik/1
 ]
 
 ---
-##Lancer le container avec ses cartes:
+##Lancer le container avec ses cartes![container](docker-containers.png)
 
 .exercise[
 - Nous allons maintenant créer la phrase de lancement du container `RUN`
@@ -357,7 +357,7 @@ docker run --name "qgis2web1" -p 8081:80 -v /home/geomatik/1/qgis2web/:/var/www/
 ref: https://github.com/jancelin/workshop_docker_GIS/blob/master/apache/README.md
 ---
 
-## Multiplier les containers
+## Multiplier les containers![container](docker-containers.png)
 
 - L'avantage de Docker et que l'on peut créer des containers identique ou diversifié très rapidement.
 
@@ -377,7 +377,7 @@ docker run --name "qgis2web3" -p 444:443 -v /home/geomatik/1/qgis2web/:/var/www/
 ]
 
 ---
-##Un peu de ménage avant de passer à la suite
+##Un peu de ménage avant de passer à la suite![container](docker-containers.png)
 
 - On se fait vite prendre au jeu de construire des containers, plein de containers...
 
@@ -414,7 +414,7 @@ sudo pip install docker-compose
 https://docs.docker.com/compose/install/
 
 ---
-##fichier docker-compose.yml
+##fichier docker-compose.yml![compose](Compose.png)
 
 - Le fichier Compose est un fichier YAML définissant les services, les réseaux et les volumes. Le chemin par défaut pour un fichier Compose est ./docker-compose.yml
 
@@ -438,7 +438,7 @@ nano docker-compose.yml
 ```
 ]
 ---
-##Lancer le container
+##Lancer le container![compose](Compose.png)
 
 .exercise[
 - Une commande permet de lire le docker-compose.yml et de le jouer, si une modification est faite sur le fichier elle est appliqué aux containers.
@@ -456,7 +456,7 @@ nano docker-compose.yml
 
 -toutes les commandes: https://docs.docker.com/compose/reference/
 ---
-## Orchestrer tout ses services
+## Orchestrer tout ses services![compose](Compose.png)
 
 .exercise[
 - rajouter tout les run dans le docker-compose.yml
@@ -482,6 +482,11 @@ nano docker-compose.yml
 	      - "/home/geomatik/1/qgis2web1/:/var/www/html/"
 ```
 ]
+---
+
+##Mise en place d'une usine logiciel WebSIG ![usine](usine.png)
+
+
 ---
 class: title
 
