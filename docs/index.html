@@ -38,7 +38,7 @@
       }
       img {
         max-width: 100%;
-        max-height: 50px;
+        max-height: 70px;
       }
       .title {
         vertical-align: middle;
@@ -99,21 +99,14 @@ Docker <br/> Workshop
 
 ## Sommaire
 
-- Concept et théorique de Docker <img scr="![docker](docker-whale.png)" width="50">
-- Conception d'une image et déploiement des containers ![docker](docker-containers.png)
-- Orchestration <img src="https://cloud.githubusercontent.com/assets/6421175/18341853/44295470-75ac-11e6-97b0-af6f6c73317c.png" width="70">
-- Mise en place d'une usine logiciel orientée WebSIG
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341011/41a9ecae-75a8-11e6-9387-43945c30435c.png" width="70">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341356/e8293e3a-75a9-11e6-8de7-165f68b17d75.png" width="50">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341274/8fd6c57c-75a9-11e6-9e57-bf330d4dfecc.png" width="50">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341093/a530766c-75a8-11e6-939c-4d3d6e96bf3c.png" width="50">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341331/d023bb08-75a9-11e6-844f-55da3afbab9e.png" width="50">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341127/d09ce4e8-75a8-11e6-91ce-b490e9ce5757.png" width="50">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18341170/060f6970-75a9-11e6-8263-fb830795c5d2.png" width="50">
+- Concept et théorique de Docker ![docker](docker-whale.png)
+- Conception d'une image et déploiement des containers ![container](docker-containers.png)
+- Orchestration ![compose](Compose.png)
+- Mise en place d'une usine logiciel orientée WebSIG ![usine](logici.png)
 
 ---
 
-## Concept et théorique de Docker <img src="https://cloud.githubusercontent.com/assets/6421175/18341385/080cecc4-75aa-11e6-8392-7efbb01320e5.png" width="100">
+## Concept et théorique de Docker ![docker](docker-whale.png)
 
 Docker est un logiciel libre (sous licence Apache 2.0) à mi-chemin entre la virtualisation applicative et l'automatisation. Il permet de manipuler des conteneurs de logiciels. Il complète le conteneur Linux LXC en isolant les processus les uns des autres pour créer une virtualisation de haut niveau. 
 
@@ -226,7 +219,7 @@ source: https://hub.docker.com/r/eeacms/hello/
 
 ---
 
-##Conception d'une image et déploiement des containers <img src="https://cloud.githubusercontent.com/assets/6421175/18341737/b3a1b974-75ab-11e6-85d1-80d076babb09.png" width="100">
+##Conception d'une image et déploiement des containers ![container](docker-containers.png)
 
 - Création du Dockerfile:
 
@@ -268,8 +261,9 @@ L'écriture d'un Dockerfile ressemble un peu à celle d'une recette de cuisine: 
 
 - Conception d'un serveur web fonctionnel (apache) pour publier mes cartes (Qgis2web)
 
-<img src="https://cloud.githubusercontent.com/assets/6421175/18508306/f2e957fa-7a73-11e6-9c5c-05fcf888598d.png" width="100">
-<img src="https://cloud.githubusercontent.com/assets/6421175/18508320/f955b4f8-7a73-11e6-9aeb-275f88748be6.png" width="70">
+![qgis2web](qgis2web.png)
+![apache](apache.png)
+
 https://plugins.qgis.org/plugins/qgis2web/
 
 .exercise[
@@ -406,7 +400,7 @@ docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs 
 ]
 
 ---
-##Orchestration <img src="https://cloud.githubusercontent.com/assets/6421175/18341853/44295470-75ac-11e6-97b0-af6f6c73317c.png" width="200">
+##Orchestration ![compose](Compose.png)
 
 ---
 
