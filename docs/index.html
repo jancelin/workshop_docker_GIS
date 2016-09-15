@@ -528,45 +528,55 @@ nano docker-compose.yml
 ```
 ]
 ---
-##Docker-compose.yml ![usine](usine.png)
+##Docker-compose.yml 1/2![usine](usine.png)
 .exercise[
 ```bash
-postgis:
-    image: kartoza/postgis:9.5-2.2
-    restart: always
-    ports:
-      - 5432:5432
-    volumes:
-      - "/home/geomatik/1/postgres_data:/var/lib/postgresql"
-    environment:
-     - POSTGRES_USER=geomatik
-     - POSTGRES_PASS=geomatik
-     - ALLOW_IP_RANGE=0.0.0.0/0
-
-  lizmap:
-    image: jancelin/docker-lizmap:3-2.14LTR
-    restart: always
-    ports:
-      - 80:80
-    volumes:
-      - "/home/geomatik/1/lizmap/lizmap_project:/home"
-      - "/home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var"
-
-  rstudio:
-    image: rocker/rstudio
-    restart: always
-    ports:
-      - 8787:8787
-    volumes:
-      - /home/geomatik/1/rstudio:/home/geomatik
-    environment:
-      - USER=geomatik
-      - PASSWORD=geomatik
+	version: '2'
+	
+	services:
+	
+	  postgis:
+	    image: kartoza/postgis:9.5-2.2
+	    restart: always
+	    ports:
+	      - 5432:5432
+	    volumes:
+	      - "/home/geomatik/1/postgres_data:/var/lib/postgresql"
+	    environment:
+	     - POSTGRES_USER=geomatik
+	     - POSTGRES_PASS=geomatik
+	     - ALLOW_IP_RANGE=0.0.0.0/0
 ```
 ]
 
 ---
+##Docker-compose.yml 2/2![usine](usine.png)
+.exercise[
+```bash
+	  lizmap:
+	    image: jancelin/docker-lizmap:3-2.14LTR
+	    restart: always
+	    ports:
+	      - 80:80
+	    volumes:
+	      - "/home/geomatik/1/lizmap/lizmap_project:/home"
+	      - "/home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var"
+	      
+	  rstudio:
+	    image: rocker/rstudio
+	    restart: always
+	    ports:
+	      - 8787:8787
+	    volumes:
+	      - /home/geomatik/1/rstudio:/home/geomatik
+	    environment:
+	      - USER=geomatik
+	      - PASSWORD=geomatik
 
+```
+]
+
+---
 class: title
 
 # Merci! <br/> Questions?
