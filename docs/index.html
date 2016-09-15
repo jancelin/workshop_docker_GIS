@@ -135,7 +135,8 @@ L'hôte héberge quelques services, Docker et les fichiers de données persistan
 
 ##Installation de docker linux ubuntu/Debian:
 
-```
+.exercise[
+```bash
   sudo apt-get install apt-transport-https ca-certificates
   sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
   		   --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -153,7 +154,6 @@ L'hôte héberge quelques services, Docker et les fichiers de données persistan
   sudo service docker start
   sudo groupadd docker
   sudo usermod -aG docker $USER
-  
 ```
 https://docs.docker.com/engine/installation/
 
@@ -408,6 +408,13 @@ docker ps -a | awk '{ print $1,$2 }' | grep apache1 | awk '{print $1 }' | xargs 
 **C’est là que docker-compose vous simplifie la vie.**
 
 - En se basant sur un fichier docker-compose.yml contenant la configuration de votre empilement, docker-compose va créer, lancer, ouvrir les ports, créer les volumes et lier vos containers tout seul.
+
+.exercise[
+```bash
+sudo apt-get install python-pip
+sudo pip install docker-compose
+```
+https://docs.docker.com/compose/install/
 ---
 
 
