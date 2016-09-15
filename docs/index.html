@@ -437,9 +437,22 @@ nano docker-compose.yml
 	      - "/home/geomatik/1/qgis2web/:/var/www/html/"
 ```
 ]
+---
+##Lancer le container
+
+.exercise[
+- Une commande permet de lire le docker-compose.yml et de le jouer, si une modification est faite sur le fichier elle est appliqué aux containers.
+```bash
+	docker-compose up -d
+```
+- Visualiser le résultat http://localhost:8081
+- Visualiser l'état du container: `docker-compose ps`
+- Arrêter un container: `docker-compose stop qgis2web1`
+- Supprimer un container: `docker-compose rm qgis2web1`
+- Tuer tout les containers: `docker-compose kill`
+- Supprimer tout les containers: `docker-compose rm`
 
 ---
-
 class: title
 
 # Merci! <br/> Questions?
