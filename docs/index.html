@@ -482,7 +482,7 @@ https://docs.docker.com/compose/install/
 	    ports:
 	      - 8082:80
 	    volumes:
-	      - "/home/geomatik/1/qgis2web1/:/var/www/html/"
+	      - /home/geomatik/1/qgis2web1/:/var/www/html/
 ```
 ]
 ---
@@ -545,7 +545,7 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 	    ports:
 	      - 5432:5432
 	    volumes:
-	      - "/home/geomatik/1/postgres_data:/var/lib/postgresql"
+	      - /home/geomatik/1/postgres_data:/var/lib/postgresql
 	    environment:
 	     - POSTGRES_USER=geomatik
 	     - POSTGRES_PASS=geomatik
@@ -563,8 +563,8 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 	    ports:
 	      - 80:80
 	    volumes:
-	      - "/home/geomatik/1/lizmap/lizmap_project:/home"
-	      - "/home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var"
+	      - /home/geomatik/1/lizmap/lizmap_project:/home
+	      - /home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var
 	      
 	  rstudio:
 	    image: rocker/rstudio
