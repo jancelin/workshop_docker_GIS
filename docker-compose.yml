@@ -8,7 +8,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - "/home/geomatik/1/postgres_data:/var/lib/postgresql"
+      - /home/geomatik/1/postgres_data:/var/lib/postgresql
     environment:
      - POSTGRES_USER=geomatik
      - POSTGRES_PASS=geomatik
@@ -20,14 +20,16 @@ services:
     ports:
       - 80:80
     volumes:
-      - "/home/geomatik/1/lizmap/lizmap_project:/home"
-      - "/home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var"
+      - /home/geomatik/1/lizmap/lizmap_project:/home
+      - /home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var
       
   rstudio:
     image: rocker/rstudio
     restart: always
     ports:
       - 8787:8787
+    links:
+      - postgis
     volumes:
       - /home/geomatik/1/rstudio:/home/geomatik
     environment:
