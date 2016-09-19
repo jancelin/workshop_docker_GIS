@@ -586,7 +586,7 @@ services:
 ```bash
 	docker-compose up -d
 ```
-- identifier et Personaliser un container et son image (pouvoir utiliser la librairie RPostgreSQL):
+- identifier et Personaliser un container et son image: install.packages("RPostgreSQL") ne fonctionne pas dans Rstudio:
 ```bash
 docker ps -a
 docker exec -it 1_rstudio_1 bash
@@ -596,6 +596,7 @@ docker-compose stop rstudio
 docker commit 1_rstudio_1 rocker/rstudio
 docker-compose up -d rstudio
 ```
+- Dans rstudio vous pouvez maintenant installer RPostgreSQL: install.packages("RPostgreSQL")
 ]
 ---
 ##Ajouter Gitlab et Owncloud![usine](logici.png)
