@@ -578,8 +578,101 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 
 ```
 ]
-
 ---
+##Lancer et utiliser![usine](usine.png)
+.exercise[
+```bash
+	docker-compose up -d
+```
+- Pour ceux qui souhaite avoir un environnement complet de dev avec Owncloud et Gitlab en plus
+exercise[
+- rajouter 2 dossiers et quelques sous dossiers:
+```bash
+	mkdir /home/geomatik/1/owncloud
+	mkdir /home/geomatik/1/owncloud/apps
+	mkdir /home/geomatik/1/owncloud/config
+	mkdir /home/geomatik/1/owncloud/data
+	mkdir /home/geomatik/1/gitlab
+	mkdir /home/geomatik/1/gitlab/config
+	mkdir /home/geomatik/1/gitlab/logs
+	mkdir /home/geomatik/1/data
+```
+]
+---
+##Docker-compose.yml 1/2![usine](usine.png)
+exercise[
+- Rajouter au docker-compose.yml
+```bash
+	  owncloud:
+	    image: owncloud
+	    restart: always
+	    ports:
+	      - 8080:80
+	    volumes:
+	      - "/home/geomatik/1/owncloud/apps:/var/www/html/apps"
+	      - "/home/geomatik/1/owncloud/config:/var/www/html/config"
+	      - "/home/geomatik/1/owncloud/data:/var/www/html/data"
+	
+	  mysql:
+	    image: mariadb
+	    restart: always
+	    environment:
+	      MYSQL_ROOT_PASSWORD: geomatik
+```
+]
+---
+##Docker-compose.yml 2/2![usine](usine.png)
+exercise[
+```bash
+	 gitlab:
+	    image: gitlab/gitlab-ce:latest
+	    restart: always
+	    ports:
+	      - '90:80'
+	      - '443:443'
+	      - '25:22'
+	    volumes:
+	      - '/home/geomatik/1/gitlab/config:/etc/gitlab'
+	      - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
+	      - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
+```
+- Et up: 'docker-compose up -d'
+]
+---
+##Initialisation owncloud 1/2![usine](usine.png)
+exercise[
+```bash
+	# https://hub.docker.com/_/owncloud/
+	# ownCloud with MariaDB/MySQL
+	#
+	# Access via "http://localhost:8080" (or "http://$(docker-machine ip):8080" if using docker-machine)
+	#
+	# During initial ownCloud setup, select "Storage & database" --> "Configure the database" --> "MySQL/MariaDB"
+	# Database user: root
+	# Database password: geomatik
+	# Database name: geomatik
+	# Database host: replace "localhost" with "mysql"
+```
+]
+---
+##Initialisation owncloud 2/2![usine](usine.png)
+exercise[
+- Une fois que Owncloud est fonctionel, changer le dossier lié pour les projets Lizmap dans le docker-compose.yml
+```bash
+	 lizmap:
+	    image: jancelin/docker-lizmap:3-2.14LTR
+	    restart: always
+	    ports:
+	      - 80:80
+	    volumes:
+	      - "/home/geomatik/1/owncloud/data/geomatik/files/lizmap:/home"
+	      - "/home/geomatik/1/lizmap_var:/var/www/websig/lizmap/var"
+	      - "/home/geomatik/1/lizmap_tmp:/tmp"
+```
+-Et up: 'docker-compose up -d lizmap'
+]
+---
+
 class: title
 
 # Merci! <br/> Questions?
