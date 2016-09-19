@@ -419,19 +419,19 @@ https://docs.docker.com/compose/install/
 .exercise[
 - Créer le docker-compose.yml
 ```bash
-	nano docker-compose.yml
+nano docker-compose.yml
 
-	version: '2'
-	
-	services:
-	
-	  qgis2web81:
-	    image: apache1
-	    restart: always
-	    ports:
-	      - 8081:80
-	    volumes:
-	      - "/home/geomatik/1/qgis2web/:/var/www/html/"
+version: '2'
+
+services:
+
+  qgis2web81:
+    image: apache1
+    restart: always
+    ports:
+      - 8081:80
+    volumes:
+      - "/home/geomatik/1/qgis2web/:/var/www/html/"
 ```
 ]
 ---
@@ -463,25 +463,25 @@ https://docs.docker.com/compose/install/
 .exercise[
 - rajouter tout les run dans le docker-compose.yml
 ```bash
-	version: '2'
-	
-	services:
-	
-	  qgis2web81:
-	    image: apache1
-	    restart: always
-	    ports:
-	      - 8081:80
-	    volumes:
-	      - "/home/geomatik/1/qgis2web/:/var/www/html/"
-	
-	  qgis2web82:
-	    image: apache1
-	    restart: always
-	    ports:
-	      - 8082:80
-	    volumes:
-	      - /home/geomatik/1/qgis2web1/:/var/www/html/
+version: '2'
+
+services:
+
+  qgis2web81:
+    image: apache1
+    restart: always
+    ports:
+      - 8081:80
+    volumes:
+      - "/home/geomatik/1/qgis2web/:/var/www/html/"
+
+  qgis2web82:
+    image: apache1
+    restart: always
+    ports:
+      - 8082:80
+    volumes:
+      - /home/geomatik/1/qgis2web1/:/var/www/html/
 ```
 ]
 ---
@@ -556,25 +556,25 @@ services:
 ##Docker-compose.yml 2/2![usine](usine.png)
 .exercise[
 ```bash
-	  lizmap:
-	    image: jancelin/docker-lizmap:3-2.14LTR
-	    restart: always
-	    ports:
-	      - 80:80
-	    volumes:
-	      - /home/geomatik/1/lizmap/lizmap_project:/home
-	      - /home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var
-	      
-	  rstudio:
-	    image: rocker/rstudio
-	    restart: always
-	    ports:
-	      - 8787:8787
-	    volumes:
-	      - /home/geomatik/1/rstudio:/home/geomatik
-	    environment:
-	      - USER=geomatik
-	      - PASSWORD=geomatik
+  lizmap:
+    image: jancelin/docker-lizmap:3-2.14LTR
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /home/geomatik/1/lizmap/lizmap_project:/home
+      - /home/geomatik/1/lizmap/lizmap_var:/var/www/websig/lizmap/var
+      
+  rstudio:
+    image: rocker/rstudio
+    restart: always
+    ports:
+      - 8787:8787
+    volumes:
+      - /home/geomatik/1/rstudio:/home/geomatik
+    environment:
+      - USER=geomatik
+      - PASSWORD=geomatik
 
 ```
 ]
@@ -606,38 +606,38 @@ services:
 .exercise[
 - Rajouter au docker-compose.yml
 ```bash
-	owncloud:
-	  image: owncloud
-	  restart: always
-	  ports:
-	    - 8080:80
-	  volumes:
-	    - "/home/geomatik/1/owncloud/apps:/var/www/html/apps"
-	    - "/home/geomatik/1/owncloud/config:/var/www/html/config"
-	    - "/home/geomatik/1/owncloud/data:/var/www/html/data"
-	
-	mysql:
-	  image: mariadb
-	  restart: always
-	  environment:
-	  MYSQL_ROOT_PASSWORD: geomatik
+  owncloud:
+    image: owncloud
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - "/home/geomatik/1/owncloud/apps:/var/www/html/apps"
+      - "/home/geomatik/1/owncloud/config:/var/www/html/config"
+      - "/home/geomatik/1/owncloud/data:/var/www/html/data"
+
+mysql:
+  image: mariadb
+  restart: always
+  environment:
+  MYSQL_ROOT_PASSWORD: geomatik
 ```
 ]
 ---
 ##Docker-compose.yml 2/2![usine](logici.png)
 .exercise[
 ```bash
-	gitlab:
-	  image: gitlab/gitlab-ce:latest
-	  restart: always
-	  ports:
-	    - '90:80'
-	    - '443:443'
-	    - '25:22'
-	  volumes:
-	    - '/home/geomatik/1/gitlab/config:/etc/gitlab'
-	    - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
-	    - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    ports:
+      - '90:80'
+      - '443:443'
+      - '25:22'
+    volumes:
+      - '/home/geomatik/1/gitlab/config:/etc/gitlab'
+      - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
+      - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
 ```
 - Et up:
 ```bash
@@ -648,16 +648,16 @@ services:
 ##Initialisation owncloud 1/2![usine](logici.png)
 .exercise[
 ```bash
-	# https://hub.docker.com/_/owncloud/
-	# ownCloud with MariaDB/MySQL
-	#
-	# Access via "http://localhost:8080" (or "http://$(docker-machine ip):8080" if using docker-machine)
-	#
-	# During initial ownCloud setup, select "Storage & database" --> "Configure the database" --> "MySQL/MariaDB"
-	# Database user: root
-	# Database password: geomatik
-	# Database name: geomatik
-	# Database host: replace "localhost" with "mysql"
+# https://hub.docker.com/_/owncloud/
+# ownCloud with MariaDB/MySQL
+#
+# Access via "http://localhost:8080" (or "http://$(docker-machine ip):8080" if using docker-machine)
+#
+# During initial ownCloud setup, select "Storage & database" --> "Configure the database" --> "MySQL/MariaDB"
+# Database user: root
+# Database password: geomatik
+# Database name: geomatik
+# Database host: replace "localhost" with "mysql"
 ```
 ]
 ---
@@ -665,15 +665,15 @@ services:
 .exercise[
 - Une fois que Owncloud est fonctionel, changer le dossier lié pour les projets Lizmap dans le docker-compose.yml
 ```bash
-	 lizmap:
-	    image: jancelin/docker-lizmap:3-2.14LTR
-	    restart: always
-	    ports:
-	      - 80:80
-	    volumes:
-	      - "/home/geomatik/1/owncloud/data/geomatik/files/lizmap:/home"
-	      - "/home/geomatik/1/lizmap_var:/var/www/websig/lizmap/var"
-	      - "/home/geomatik/1/lizmap_tmp:/tmp"
+  lizmap:
+    image: jancelin/docker-lizmap:3-2.14LTR
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - "/home/geomatik/1/owncloud/data/geomatik/files/lizmap:/home"
+      - "/home/geomatik/1/lizmap_var:/var/www/websig/lizmap/var"
+      - "/home/geomatik/1/lizmap_tmp:/tmp"
 ```
 -Et up:
 ```bash
