@@ -590,8 +590,10 @@ services:
 ```bash
 docker ps -a
 docker exec -it 1_rstudio_1 bash
+
 	apt-get update
 	apt-get -t unstable install libpq-dev
+	
 docker-compose stop rstudio
 docker commit 1_rstudio_1 rocker/rstudio
 docker-compose up -d rstudio
