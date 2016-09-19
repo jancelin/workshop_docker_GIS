@@ -579,12 +579,29 @@ services:
 ```
 ]
 ---
-##Lancer et utiliser![usine](usine.png)
+##Lancer, utiliser, personaliser une image![usine](usine.png)
 
 .exercise[
+- Lancer
 ```bash
 	docker-compose up -d
 ```
+- identifier et Personaliser un container et son image (pouvoir utiliser la librairie RPostgreSQL):
+```bash
+docker ps -a
+docker exec -it 1_rstudio_1 bash
+	apt-get update
+	apt-get -t unstable install libpq-dev
+docker-compose stop rstudio
+docker commit 1_rstudio_1 rocker/rstudio
+docker-compose up -d rstudio
+```
+]
+---
+##Ajouter Gitlab et Owncloud![usine](logici.png)
+
+.exercise[
+```bash
 - Pour avoir un environnement complet de dev avec Owncloud et Gitlab en plus
 - rajouter 2 dossiers et quelques sous dossiers:
 ```bash
@@ -598,7 +615,6 @@ services:
 	mkdir /home/geomatik/1/data
 ```
 ]
-![usine](logici.png)
 
 ---
 ##Docker-compose.yml 1/2![usine](logici.png)
@@ -686,7 +702,7 @@ class: title
 
 # Merci! <br/> Questions?
 
-## [@jancelin](https://twitter.com/complementterre)
+## [@complementterre](https://twitter.com/complementterre)
 
     </textarea>
     <script src="remark-0.13.min.js" type="text/javascript">
