@@ -35,3 +35,43 @@ services:
     environment:
       - USER=geomatik
       - PASSWORD=geomatik
+
+  owncloud:
+    image: owncloud
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - "/home/geomatik/1/owncloud/apps:/var/www/html/apps"
+      - "/home/geomatik/1/owncloud/config:/var/www/html/config"
+      - "/home/geomatik/1/owncloud/data:/var/www/html/data"
+  mysql:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: geomatik
+      
+     gitlab:
+        image: gitlab/gitlab-ce:latest
+        restart: always
+        ports:
+          - 90:80
+          - 443:443
+          - 25:22
+        volumes:
+          - '/home/geomatik/1/gitlab/config:/etc/gitlab'
+          - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
+          - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
+          
+    # https://hub.docker.com/_/owncloud/
+    # ownCloud with MariaDB/MySQL
+    #
+    # Access via "http://localhost:8080" (or "http://$(docker-machine ip):8080" if using docker-machine)
+    #
+    # During initial ownCloud setup, select "Storage & database" --> "Configure the database" --> "MySQL/MariaDB"
+    # Database user: root
+    # Database password: geomatik
+    # Database name: geomatik
+    # Database host: replace "localhost" with "mysql"
+
+
