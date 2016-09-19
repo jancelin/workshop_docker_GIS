@@ -579,14 +579,19 @@ services:
 ```
 ]
 ---
-##Lancer, utiliser, personaliser une image![usine](usine.png)
+##Lancer![usine](usine.png)
 
 .exercise[
 - Lancer
 ```bash
 	docker-compose up -d
 ```
-- identifier et Personaliser un container et son image: install.packages("RPostgreSQL") ne fonctionne pas dans Rstudio:
+---
+##Personaliser une image![usine](usine.png)
+
+.exercise[
+- install.packages("RPostgreSQL") ne fonctionne pas dans Rstudio.
+- identifier et Personaliser un container et son image:
 ```bash
 docker ps -a
 docker exec -it 1_rstudio_1 bash
