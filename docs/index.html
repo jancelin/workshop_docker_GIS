@@ -534,21 +534,21 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 
 .exercise[
 ```bash
-	version: '2'
-	
-	services:
-	
-	  postgis:
-	    image: kartoza/postgis:9.5-2.2
-	    restart: always
-	    ports:
-	      - 5432:5432
-	    volumes:
-	      - /home/geomatik/1/postgres_data:/var/lib/postgresql
-	    environment:
-	     - POSTGRES_USER=geomatik
-	     - POSTGRES_PASS=geomatik
-	     - ALLOW_IP_RANGE=0.0.0.0/0
+version: '2'
+
+services:
+
+  postgis:
+    image: kartoza/postgis:9.5-2.2
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - /home/geomatik/1/postgres_data:/var/lib/postgresql
+    environment:
+     - POSTGRES_USER=geomatik
+     - POSTGRES_PASS=geomatik
+     - ALLOW_IP_RANGE=0.0.0.0/0
 ```
 ]
 
