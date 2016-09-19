@@ -585,7 +585,7 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 ```bash
 	docker-compose up -d
 ```
-- Pour ceux qui souhaite avoir un environnement complet de dev avec Owncloud et Gitlab en plus
+- Pour avoir un environnement complet de dev avec Owncloud et Gitlab en plus
 - rajouter 2 dossiers et quelques sous dossiers:
 ```bash
 	mkdir /home/geomatik/1/owncloud
@@ -598,8 +598,10 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 	mkdir /home/geomatik/1/data
 ```
 ]
+![usine](logici.png)
+
 ---
-##Docker-compose.yml 1/2![usine](usine.png)
+##Docker-compose.yml 1/2![usine](logici.png)
 
 .exercise[
 - Rajouter au docker-compose.yml
@@ -622,7 +624,7 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 ```
 ]
 ---
-##Docker-compose.yml 2/2![usine](usine.png)
+##Docker-compose.yml 2/2![usine](logici.png)
 .exercise[
 ```bash
 	 gitlab:
@@ -637,10 +639,13 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 	      - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
 	      - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
 ```
-- Et up: 'docker-compose up -d'
+- Et up:
+```bash
+	docker-compose up -d
+```
 ]
 ---
-##Initialisation owncloud 1/2![usine](usine.png)
+##Initialisation owncloud 1/2![usine](logici.png)
 .exercise[
 ```bash
 	# https://hub.docker.com/_/owncloud/
@@ -656,7 +661,7 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 ```
 ]
 ---
-##Initialisation owncloud 2/2![usine](usine.png)
+##Initialisation owncloud 2/2![usine](logici.png)
 .exercise[
 - Une fois que Owncloud est fonctionel, changer le dossier lié pour les projets Lizmap dans le docker-compose.yml
 ```bash
@@ -670,7 +675,10 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 	      - "/home/geomatik/1/lizmap_var:/var/www/websig/lizmap/var"
 	      - "/home/geomatik/1/lizmap_tmp:/tmp"
 ```
--Et up: 'docker-compose up -d lizmap'
+-Et up:
+```bash
+	docker-compose up -d
+```
 ]
 ---
 
