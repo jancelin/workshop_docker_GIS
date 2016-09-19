@@ -606,38 +606,38 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 .exercise[
 - Rajouter au docker-compose.yml
 ```bash
-	  owncloud:
-	    image: owncloud
-	    restart: always
-	    ports:
-	      - 8080:80
-	    volumes:
-	      - "/home/geomatik/1/owncloud/apps:/var/www/html/apps"
-	      - "/home/geomatik/1/owncloud/config:/var/www/html/config"
-	      - "/home/geomatik/1/owncloud/data:/var/www/html/data"
+	owncloud:
+	  image: owncloud
+	  restart: always
+	  ports:
+	    - 8080:80
+	  volumes:
+	    - "/home/geomatik/1/owncloud/apps:/var/www/html/apps"
+	    - "/home/geomatik/1/owncloud/config:/var/www/html/config"
+	    - "/home/geomatik/1/owncloud/data:/var/www/html/data"
 	
-	  mysql:
-	    image: mariadb
-	    restart: always
-	    environment:
-	      MYSQL_ROOT_PASSWORD: geomatik
+	mysql:
+	  image: mariadb
+	  restart: always
+	  environment:
+	  MYSQL_ROOT_PASSWORD: geomatik
 ```
 ]
 ---
 ##Docker-compose.yml 2/2![usine](logici.png)
 .exercise[
 ```bash
-	 gitlab:
-	    image: gitlab/gitlab-ce:latest
-	    restart: always
-	    ports:
-	      - '90:80'
-	      - '443:443'
-	      - '25:22'
-	    volumes:
-	      - '/home/geomatik/1/gitlab/config:/etc/gitlab'
-	      - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
-	      - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
+	gitlab:
+	  image: gitlab/gitlab-ce:latest
+	  restart: always
+	  ports:
+	    - '90:80'
+	    - '443:443'
+	    - '25:22'
+	  volumes:
+	    - '/home/geomatik/1/gitlab/config:/etc/gitlab'
+	    - '/home/geomatik/1/gitlab/logs:/var/log/gitlab'
+	    - '/home/geomatik/1/gitlab/data:/var/opt/gitlab'
 ```
 - Et up:
 ```bash
