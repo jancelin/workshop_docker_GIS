@@ -591,16 +591,18 @@ services:
 docker ps -a
 docker exec -it 1_rstudio_1 bash
 ```
+- Editer le container
 ```bash
 	apt-get update
 	apt-get -t unstable install libpq-dev
+	exit
 ```
+- Commit l'image
 ```bash
 docker-compose stop rstudio
 docker commit 1_rstudio_1 rocker/rstudio
 docker-compose up -d rstudio
 ```
-- Dans rstudio vous pouvez maintenant installer RPostgreSQL: install.packages("RPostgreSQL")
 ]
 ---
 ##Ajouter Gitlab et Owncloud![usine](logici.png)
