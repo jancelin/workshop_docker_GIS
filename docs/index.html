@@ -580,12 +580,12 @@ https://github.com/jancelin/workshop_docker_GIS/blob/master/docker-compose.yml
 ]
 ---
 ##Lancer et utiliser![usine](usine.png)
+
 .exercise[
 ```bash
 	docker-compose up -d
 ```
 - Pour ceux qui souhaite avoir un environnement complet de dev avec Owncloud et Gitlab en plus
-exercise[
 - rajouter 2 dossiers et quelques sous dossiers:
 ```bash
 	mkdir /home/geomatik/1/owncloud
@@ -600,7 +600,8 @@ exercise[
 ]
 ---
 ##Docker-compose.yml 1/2![usine](usine.png)
-exercise[
+
+.exercise[
 - Rajouter au docker-compose.yml
 ```bash
 	  owncloud:
@@ -622,7 +623,7 @@ exercise[
 ]
 ---
 ##Docker-compose.yml 2/2![usine](usine.png)
-exercise[
+.exercise[
 ```bash
 	 gitlab:
 	    image: gitlab/gitlab-ce:latest
@@ -640,7 +641,7 @@ exercise[
 ]
 ---
 ##Initialisation owncloud 1/2![usine](usine.png)
-exercise[
+.exercise[
 ```bash
 	# https://hub.docker.com/_/owncloud/
 	# ownCloud with MariaDB/MySQL
@@ -656,7 +657,7 @@ exercise[
 ]
 ---
 ##Initialisation owncloud 2/2![usine](usine.png)
-exercise[
+.exercise[
 - Une fois que Owncloud est fonctionel, changer le dossier lié pour les projets Lizmap dans le docker-compose.yml
 ```bash
 	 lizmap:
