@@ -140,6 +140,7 @@ L'hôte héberge quelques services, Docker et les fichiers de données persistan
   sudo apt-get update
   sudo apt-get install curl 
   curl -fsSL https://get.docker.com/ | sh
+  sudo systemctl enable docker
   sudo service docker start
   sudo groupadd docker
   sudo usermod -aG docker $USER
