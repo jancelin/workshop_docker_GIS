@@ -354,11 +354,10 @@ ref: https://github.com/jancelin/workshop_docker_GIS/blob/master/apache/README.m
 
 ## Multiplier les containers![container](docker-containers.png)
 
-- L'avantage de Docker et que l'on peut créer des containers identique ou diversifié très rapidement.
+- L'avantage de Docker et que l'on peut créer des containers identiques ou diversifiés très rapidement.
 
 .exercise[
-- créer un deuxième container qgis2web avec un jeux de données différents.
-- créer un troisième container
+- créer un deuxième container qgis2web avec un jeux de données différent.
 - Copier le deuxième répertoire créé avec Qgis2Web dans ce dossier
 ```bash
 cp -r /home/geomatik/qgis2web1/ /home/geomatik/1
@@ -462,14 +461,13 @@ https://docs.docker.com/compose/install/
 	version: '2'
 	
 	services:
-	
 	  qgis2web81:
 	    image: apache1
 	    restart: always
 	    ports:
 	      - 8081:80
 	    volumes:
-	      - "/home/geomatik/1/qgis2web/:/var/www/html/"
+	      - /home/geomatik/1/qgis2web/:/var/www/html/
 	
 	  qgis2web82:
 	    image: apache1
@@ -699,7 +697,7 @@ docker-compose up -d rstudio
       - "/home/geomatik/1/lizmap_var:/var/www/websig/lizmap/var"
       - "/home/geomatik/1/lizmap_tmp:/tmp"
 ```
--Et up:
+- Et up:
 ```bash
 	docker-compose up -d
 ```
