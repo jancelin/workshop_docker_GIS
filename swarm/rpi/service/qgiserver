@@ -1,0 +1,3 @@
+ docker service create --replicas 1 --name qgisserver  -p 8200:80 jancelin/geopoppy:qgis-server2.14LTR
+ 
+ docker servcice scale qgiserver=4
