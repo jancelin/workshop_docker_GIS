@@ -1,2 +1,2 @@
 
-docker volume create --name=qgis
+docker volume create -d flocker --name=qgis
