@@ -1,0 +1,5 @@
+docker swarm init  --advertise-addr eth0
+
+docker node ls
+
+docker swarm leave --force
