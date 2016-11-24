@@ -1,12 +1,7 @@
+
  docker service create --replicas 4 \
- --mount src=qgis,dst=/home \
- --name qgiserver  -p 8200:80 \
- jancelin/geopoppy:qgis-server2.14LTR
- 
- 
- docker service create --replicas 4 \
- --mount type=bind,source=/home/pirate,destination=/home \
- --network ingress \
+ --mount type=bind,source=/home/pirate/map,destination=/home \
+ --network mynet \
  --name qgiserver  -p 8200:80 \
  jancelin/geopoppy:qgis-server2.14LTR
  
