@@ -728,7 +728,8 @@ Comment gérer la rééecriture d'URL dans docker entre le proxy porte d'entrée
 ##Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 	    
 - En terme de proxy, le premier qui vient à l’esprit est HAProxy. Il existe aussi træfik et nginx.
-.exercise[	    
+.exercise[
+1/2
 ```bash
 version: '2'
 	services:
@@ -746,7 +747,8 @@ version: '2'
 ]
 ---
 ##Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
-.exercise[	    
+.exercise[
+2/2
 ```bash
   qgiserver:
     image: jancelin/qgis-server:2.14LTR
@@ -771,13 +773,15 @@ docker-compose scale qgiserver=15
 ---
 ##Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 .exercise[	    
-* Tester si qgis-server fonctionne
+- Tester si qgis-server fonctionne
 
 > http://localhost:8900/cgi-bin/qgis_mapserv.fcgi?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
 
-* Voir les statistiques:
-
-http://internal_lb_ip:1936
+- Pour voir les statistiques récupérer l'IP interne du container:
+```bash
+docker ps -a
+```
+>http://internal_lb_ip:1936
 
 >ex: http://172.18.0.2:1936
 
