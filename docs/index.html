@@ -703,6 +703,7 @@ docker-compose up -d rstudio
 	docker-compose up -d
 ```
 ]
+	    
 ---
 ## Load Balancing et SWARM ![swarm](swarm.png)
 	    
@@ -741,7 +742,8 @@ services:
       - MONITOR_PORT
     ports:
       - 8900:80
-```	    
+```
+	    
 ---	    
 ## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 	    
@@ -765,6 +767,7 @@ docker-compose up -d lb
 ```bash
 docker-compose scale qgiserver=15
 ```
+	    
 ---
 ## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 	    
