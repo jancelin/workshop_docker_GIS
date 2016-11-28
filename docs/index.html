@@ -705,7 +705,7 @@ docker-compose up -d rstudio
 ]
 	    
 ---
-## Load Balancing et SWARM ![swarm](swarm.png)
+##Load Balancing et SWARM ![swarm](swarm.png)
 	    
 - Docker-Compose
 
@@ -716,7 +716,7 @@ Docker propose depuis longtemps déjà docker-compose qui offre la possibilité 
 Mais comment orchestrer un ensemble de containers non plus sur un seul serveur, mais répartis sur plusieurs serveurs ? Docker propose son alternative en améliorant la version existante de Docker Swarm.
 
 ---
-## Load Balancing sur un seul serveur![swarm](swarm.png)
+##Load Balancing sur un seul serveur![swarm](swarm.png)
 
 - La réecriture d’URL sur une seule machine
 	    
@@ -725,36 +725,36 @@ Comment gérer la rééecriture d'URL dans docker entre le proxy porte d'entrée
 ![url](haproxy_ssl.png)
 	    
 ---
-## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
+##Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 	    
 - En terme de proxy, le premier qui vient à l’esprit est HAProxy. Il existe aussi træfik et nginx.
 .exercise[	    
 ```bash
-version: '2'
-services:
-  lb:
-    image: dockercloud/haproxy
-    links:
-      - qgiserver
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - MONITOR_PORT
-    ports:
-      - 8900:80
+	version: '2'
+	services:
+	  lb:
+	    image: dockercloud/haproxy
+	    links:
+	      - qgiserver
+	    volumes:
+	      - /var/run/docker.sock:/var/run/docker.sock
+	    environment:
+	      - MONITOR_PORT
+	    ports:
+	      - 8900:80
 ```
 ]
 ---	    
-## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
+##Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 .exercise[	    
 ```bash
-  qgiserver:
-    image: jancelin/qgis-server:2.14LTR
-    restart: always
-    volumes:
-      - "/home/qgis_files:/home"
-    expose:
-      - 80
+	  qgiserver:
+	    image: jancelin/qgis-server:2.14LTR
+	    restart: always
+	    volumes:
+	      - "/home/qgis_files:/home"
+	    expose:
+	      - 80
 ```
 - up
 
@@ -769,7 +769,7 @@ docker-compose scale qgiserver=15
 ```
 ]	    
 ---
-## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
+##Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 	    
 * Tester si qgis-server fonctionne
 
@@ -787,8 +787,6 @@ http://internal_lb_ip:1936
 	    
 ---
 	    
-class: title
-
 # Merci! <br/> Questions?
 
 ## [@complementterre](https://twitter.com/complementterre)
