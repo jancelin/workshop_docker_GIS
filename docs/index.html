@@ -800,8 +800,11 @@ docker ps -a
 ---
 ##Swarm![swarm](swarm.png)
 .exercise[
+- Sur chaque carte SD flasher Hypriot Docker Image et modifier le hostname dans /boot/device-init.yaml: ex: hostname: gp1
+
 - Sous ubuntu, créer une connexion ethernet où:
 	> tout les utilisateurs peuvent se connecter
+	    
 	> ipv4: automatique DHCP
 
 - brancher le cluster Raspberry en ethernet au pc et lancer un arp -a pour connaître les ip des noeuds
@@ -871,7 +874,12 @@ jancelin/geopoppy:qgis-server2.14LTR
 ]
 ---
 ##Swarm![swarm](swarm.png)	
-		
+- Visualiser le résultat:
+
+http://gp1.local
+
+![swarm](swarm_lizmap.png)
+
 ---
 # Merci! <br/> Questions?
 
