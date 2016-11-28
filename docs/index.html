@@ -743,7 +743,8 @@ services:
     ports:
       - 8900:80
 ```
-	    
+-1
+
 ---	    
 ## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
 	    
@@ -756,13 +757,13 @@ services:
     expose:
       - 80
 ```
-* up
+- up
 
 ```bash
 docker-compose up -d lb
 ```
 
-* scale (ex:15 qgis-sever)
+- scale (ex:15 qgis-sever)
 
 ```bash
 docker-compose scale qgiserver=15
