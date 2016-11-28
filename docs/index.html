@@ -800,6 +800,25 @@ docker ps -a
 ---
 ##Swarm![swarm](swarm.png)
 .exercise[
+- Sous ubuntu, créer une connexion ethernet où:
+		>- tout les utilisateurs peuvent se connecter
+		>- ipv4: automatique DHCP
+
+- brancher le cluster Raspberry en ethernet au pc et lancer un arp -a pour connaitre les ip des noeuds
+		
+- utiliser le docker-compose.yml de GeoPoppy sur le premier noeud (postgis + lizmap): https://github.com/jancelin/geo-poppy/blob/master/docker-compose.yml
+
+- Pour l'exemple créons 4 projets qgis identiques mais changeons la symobologie pour avoir une couleur différente de polygones par projet.
+
+- Copier un .qgs par raspberry dans un dossier /home/pirate/map
+		
+- Utiliser le plugin lizmap pour créer le .qgs.cfg et choissant l'option image non tuilée.
+
+- Dans le back-office de lizmap changer l'adresse de qgis-server par l'adresse d'un des noeud: ex: http://10.42.0.25:8200/cgi-bin/qgis_mapserv.fcgi
+]   
+
+##Swarm![swarm](swarm.png)
+.exercise[
 - initialiser le cluster
 ```bash
 docker swarm init
@@ -818,7 +837,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 ```
 - Ajouter à chaque noeud la commande donnée précédement par docker
 	    
-- Visualiser les noeuds:
+- Visualiser les noeuds à partir du noeud manager:
 ```bash
 docker node ls
 ```
@@ -826,7 +845,7 @@ docker node ls
 ---
 ##Swarm![swarm](swarm.png)
 		
-- Avec Docker Network, nous disposerons donc d’une interface standardisée de gestion d’un réseau de conteneurs
+- Avec Docker Network, nous disposerons d’une interface standardisée de gestion d’un réseau de conteneurs
 .exercise[		
 - Initialiser une connexion network interne:
 ```bash
@@ -843,15 +862,17 @@ docker network ls
 .exercise[
 - Lancer son service sur les noeuds
 ```bash
- docker service create --replicas 4 \
+ docker service create --replicas 8 \
  --mount type=bind,source=/home/pirate/map,destination=/home \
  --network mynet \
  --name qgiserver  -p 8200:80 \
 jancelin/geopoppy:qgis-server2.14LTR	
 ```
 ]
-
----  
+---
+##Swarm![swarm](swarm.png)	
+		
+---
 # Merci! <br/> Questions?
 
 ## [@complementterre](https://twitter.com/complementterre)
