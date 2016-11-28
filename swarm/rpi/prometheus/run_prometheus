@@ -1,1 +1,1 @@
-docker run -d --net=host -v /home/pirate/prometheus.yml:/etc/prometheus/prometheus.yml  ajeetraina/prometheus-armh7
+docker run -d --net=host -v /home/pirate/prometheus.yml:/etc/prometheus/prometheus.yml  ajeetraina/prometheus-armv7
