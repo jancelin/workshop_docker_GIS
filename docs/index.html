@@ -800,7 +800,7 @@ docker ps -a
 ---
 ##Swarm![swarm](swarm.png)
 .exercise[
-- Sur chaque carte SD flasher Hypriot Docker Image et modifier le hostname dans /boot/device-init.yaml: ex: hostname: gp1
+- Sur chaque SD flasher l'Hypriot Image et modifier le hostname dans /boot/device-init.yaml: hostname: gp1
 
 - Sous ubuntu, créer une connexion ethernet où:
 	> tout les utilisateurs peuvent se connecter
@@ -811,7 +811,7 @@ docker ps -a
 		
 - utiliser le docker-compose.yml de GeoPoppy sur le premier noeud (postgis + lizmap): https://github.com/jancelin/geo-poppy/blob/master/docker-compose.yml
 
-- Pour l'exemple créons 4 projets qgis identiques mais changeons la symobologie pour avoir une couleur différente de polygones par projet.
+- Pour l'exemple créons 4 projets qgis identiques et changeons la symobologie pour avoir une couleur différente de polygones par projet.
 
 - Copier un .qgs par raspberry dans le dossier /home/GeoPoppy/lizmap/project (le créer si besoin)
 		
@@ -878,6 +878,17 @@ jancelin/geopoppy:qgis-server2.14LTR
 
 ![swarm](swarm_lizmap.png)
 
+---
+##Swarm![swarm](swarm.png)
+- Profiter d'un interface graphique pour visualiser les noeuds:
+.exercise[
+- Lancer ce container sur le noeud manager
+```bash
+    docker run -it -d --restart="always" --name "visualizer" -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock alexellis2/visualizer-arm:latest
+```
+- et visualiser: http://gp1.local:8080
+			
+![visualizer](visualizer.png)
 ---
 # Merci! <br/> Questions?
 
