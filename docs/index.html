@@ -724,7 +724,49 @@ Comment gérer la rééecriture d'URL dans docker entre le proxy porte d'entrée
 ![url](haproxy_ssl.png)
 	    
 ---
+## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
+	    
+- En terme de proxy, le premier qui vient à l’esprit est HAProxy. Il existe aussi træfik et nginx.
+	    
+```
+version: '2'
+services:
+  lb:
+    image: dockercloud/haproxy
+    links:
+      - qgiserver
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - MONITOR_PORT
+    ports:
+      - 8900:80
+```	    
+---
+## Docker-compose et Load Balancing sur un seul serveur![swarm](swarm.png)
+	    
+```
+  qgiserver:
+    image: jancelin/qgis-server:2.14LTR
+    restart: always
+    volumes:
+      - "/home/qgis_files:/home"
+    expose:
+      - 80
+```
+* up
 
+```
+docker-compose up -d lb
+```
+
+* scale (ex:15 qgis-sever)
+
+```
+docker-compose scale qgiserver=15
+```
+---
+	    
 class: title
 
 # Merci! <br/> Questions?
