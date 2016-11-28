@@ -801,14 +801,12 @@ docker ps -a
 ##Swarm![swarm](swarm.png)
 .exercise[
 - initialiser le cluster
-
 ```bash
 docker swarm init
 ```
-ça renvoie un truc du genre:
-		
+- ça renvoie un truc du genre:
+```bash		
 Swarm initialized: current node (node-master) is now a manager.
-```bash
 To add a worker to this swarm, run the following command:
 
     docker swarm join \
@@ -817,6 +815,7 @@ To add a worker to this swarm, run the following command:
 
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 ```
+- Ajouter à chaque noeud la commande donnée par docker
 - Visualiser les noeuds:
 ```bash
 docker node ls
