@@ -706,13 +706,21 @@ docker-compose up -d rstudio
 ---
 ## Load Balancing et SWARM ![swarm](swarm.png)
 	    
-*Docker-Compose
+- Docker-Compose
 
 Docker propose depuis longtemps déjà docker-compose qui offre la possibilité de “composer” un ensemble de container sur une seule et même machine, mais également de “scaler” les containers toujours sur un même serveur.
 	    
-*Docker Swarm
+- Docker Swarm
 
 Mais comment orchestrer un ensemble de containers non plus sur un seul serveur, mais répartis sur plusieurs serveurs ? Docker propose son alternative en améliorant la version existante de Docker Swarm.
+
+---
+## Load Balancing sur un seul serveur![swarm](swarm.png)
+
+- La réecriture d’URL sur une seule machine
+	    
+Comment gérer la rééecriture d'URL dans docker entre le proxy porte d'entrée et les microservices de destination.
+![url](haproxy_ssl.png)
 	    
 ---
 
