@@ -796,8 +796,60 @@ docker ps -a
 - L'exemple sera déployé sur un cluster de 4 Raspberry Pi avec Hypriot Docker Image: http://blog.hypriot.com/downloads/
 		
 ![swarmnado](swarmnado.gif)
+
+---
+##Swarm![swarm](swarm.png)
+
+- initialiser le cluster
+
+```bash
+docker swarm init
+```
+ça renvoie un truc du genre:
 		
----        
+Swarm initialized: current node (node-master) is now a manager.
+```bash
+To add a worker to this swarm, run the following command:
+
+    docker swarm join \
+    --token SWMTKN-1-4kwouczydosn9b14p2f0c76fogmtojsgne3rt45odqwj1ma61h-bhpp9xvq18evjsrpp2h7ecuqb \
+    10.42.0.95:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+```
+- Visualiser les noeuds:
+```bash
+docker node ls
+```
+]
+---
+##Swarm![swarm](swarm.png)
+		
+- Avec Docker Network, nous disposerons donc d’une interface standardisée de gestion d’un réseau de conteneurs
+.exercise[		
+- Initialiser une connexion network interne:
+```bash
+docker network create -d overlay mynet
+```
+-Visualiser les networks
+```bash
+docker network ls
+```
+]
+---
+##Swarm![swarm](swarm.png)
+
+.exercise[
+- Lancer son service sur les noeuds
+```bash
+ docker service create --replicas 4 \
+ --mount type=bind,source=/home/pirate/map,destination=/home \
+ --network mynet \
+ --name qgiserver  -p 8200:80 \
+jancelin/geopoppy:qgis-server2.14LTR	
+```
+]
+---  
 # Merci! <br/> Questions?
 
 ## [@complementterre](https://twitter.com/complementterre)
