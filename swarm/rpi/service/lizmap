@@ -1,0 +1,5 @@
+docker service create --replicas 4 \
+ --mount type=bind,source=/home/pirate/lizmap_var,destination=/var/www/websig/lizmap/var \
+ --network mynet \
+ --name qgiserver  -p 8888:80 \
+jancelin/geopoppy:qgis-lizmap
