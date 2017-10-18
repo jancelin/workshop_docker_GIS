@@ -15,7 +15,7 @@ services:
      - ALLOW_IP_RANGE=0.0.0.0/0
 
   lizmap:
-    image: jancelin/docker-lizmap:3-2.14LTR
+    image: jancelin/docker-lizmap:3.1-2.14LTR
     restart: always
     ports:
       - 80:80
